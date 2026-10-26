@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Trust strip and footer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<footer ref="{{ rootRef }}" style="width: 100%; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #FFFFFF; -webkit-font-smoothing: antialiased; background: #FFFFFF">
+
+<!-- Trust strip -->
+<div style="max-width: 1320px; margin: 0 auto; padding: 0 {{ gx }}px {{ stripGap }}px; box-sizing: border-box">
+<ul style="list-style: none; margin: 0; padding: {{ stripPad }}px; display: grid; grid-template-columns: {{ trustCols }}; gap: {{ trustGap }}px; border-radius: 16px; background: #0B0B0C">
+<sc-for list="{{ trust }}" as="t" hint-placeholder-count="4">
+<li style="display: flex; align-items: center; gap: 14px; min-width: 0">
+<span style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 12px; background: #161618; border: 1px solid #2A2A2E; display: inline-flex; align-items: center; justify-content: center">
+<sc-if value="{{ t.isReturn }}" hint-placeholder-val="{{ true }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg></sc-if>
+<sc-if value="{{ t.isGift }}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"></rect><path d="M12 8v13M19 12v9H5v-9M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"></path></svg></sc-if>
+<sc-if value="{{ t.isChat }}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg></sc-if>
+<sc-if value="{{ t.isShield }}" hint-placeholder-val="{{ false }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></sc-if>
+</span>
+<span style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-size: {{ trustTitle }}px; font-weight: 800; line-height: 1.25">{{ t.title }}</span>
+<span style="font-size: 12.5px; line-height: 1.35; color: #A9A9B2">{{ t.sub }}</span>
+</span>
+</li>
+</sc-for>
+</ul>
+</div>
+
+<!-- Footer -->
+<div style="background: #0B0B0C">
+<div style="max-width: 1320px; margin: 0 auto; padding: {{ footPadY }}px {{ gx }}px 28px; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: {{ footCols }}; gap: {{ footGap }}px">
+
+<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<img loading="lazy" src="{{ img.logo_inv }}" alt="Shopzetu" style="width: 56px; height: 56px; border-radius: 4px; display: block">
+<span style="font-size: 20px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1.05">Get Black November<br>deal alerts</span>
+<span style="font-size: 14px; line-height: 1.5; color: #A9A9B2">Be first to know when each drop goes live.</span>
+<sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ submit }}" style="display: flex; gap: 8px; max-width: 420px">
+<label for="sz-alerts" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Email address</label>
+<input id="sz-alerts" type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="Email address" style="flex: 1 1 auto; min-width: 0; height: 48px; padding: 0 14px; border-radius: 6px; border: 1px solid #3A3A40; background: #161618; color: #FFFFFF; font-family: inherit; font-size: 15px; outline: none">
+<button type="submit" style="font-family: inherit; height: 48px; padding: 0 18px; border-radius: 6px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer">Subscribe</button>
+</form>
+</sc-if>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+<span role="status" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 8px; background: #161618; border: 1px solid #2A2A2E; font-size: 14px; max-width: 420px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+You're in. We'll email you when each drop goes live.</span>
+</sc-if>
+</div>
+
+<nav aria-label="About us" style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px">About us</span>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Get to know us</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: {{ a.f }}; text-decoration: none">Careers</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Zetu Studios</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Blogs</a>
+</nav>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px">Contact us</span>
+<span style="font-size: 13px; color: #A9A9B2; margin-top: 2px">Email</span>
+<a href="mailto:support@shopzetu.com" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: {{ a.f }}; text-decoration: none">support@shopzetu.com</a>
+<span style="font-size: 13px; color: #A9A9B2; margin-top: 6px">Phone</span>
+<a href="tel:0703420780" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: {{ a.f }}; text-decoration: none">0703 420 780</a>
+</div>
+
+<nav aria-label="Help and information" style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 13px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px">Help &amp; information</span>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Privacy Policy</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Terms &amp; Conditions</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Delivery &amp; Returns</a>
+<a href="{{ L.home }}" style="display: flex; align-items: center; min-height: 36px; font-size: 14.5px; color: #D4D4D8; text-decoration: none">Refund and Exchange Policy</a>
+</nav>
+
+</div>
+<div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #2A2A2E; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: #A9A9B2">
+<span>© 2026 Shopzetu</span>
+<span>Prices in KES · Kenya</span>
+</div>
+</div>
+</div>
+
+<a href="https://wa.me/254748419357" aria-label="Chat with us on WhatsApp" style="position: fixed; right: {{ fabRight }}px; bottom: {{ fabBottom }}px; z-index: 40; width: 56px; height: 56px; border-radius: 999px; background: #25D366; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(11, 11, 12, 0.28); text-decoration: none">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5l1.3-1.3 2 .8"></path></svg>
+</a>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mob":{"editor":null},"acc":{"editor":null},"$preview":{"width":1440,"height":530}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const IMG = { logo_inv: 'assets/logo_inv.webp' };
+const TRUST = [
+  { kind: 'return', title: 'Easy returns & exchanges', sub: 'See the Shopzetu return process' },
+  { kind: 'gift', title: 'Gift vouchers', sub: 'Give the gift of choice' },
+  { kind: 'chat', title: 'WhatsApp support', sub: 'Chat with us on WhatsApp' },
+  { kind: 'shield', title: 'Secure checkout', sub: 'Safe, encrypted payments' }
+];
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    this.state = { w: iw, email: '', done: false };
+    this.ro = null;
+    this.rootEl = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+  renderVals() {
+    const w = this.state.w;
+    const mobile = w < 760;
+    const desk = w >= 1100;
+    const a = ACCENTS[this.props.acc] || ACCENTS.lime;
+    const mob = this.props.mob ? '1' : '';
+    return {
+      rootRef: this.rootRef, a, img: IMG,
+      L: mob ? { home: 'MobileHome.dc.html' } : { home: './' },
+      gx: mobile ? 16 : (desk ? 32 : 24),
+      stripGap: mobile ? 32 : 48, stripPad: mobile ? 18 : 26,
+      trustCols: mobile ? 'minmax(0, 1fr)' : (desk ? 'repeat(4, minmax(0, 1fr))' : 'repeat(2, minmax(0, 1fr))'),
+      trustGap: mobile ? 16 : 24, trustTitle: mobile ? 14 : 15,
+      trust: TRUST.map((t) => Object.assign({}, t, { isReturn: t.kind === 'return', isGift: t.kind === 'gift', isChat: t.kind === 'chat', isShield: t.kind === 'shield' })),
+      footPadY: mobile ? 40 : 56,
+      footCols: mobile ? 'minmax(0, 1fr)' : (desk ? 'minmax(0, 1.5fr) repeat(3, minmax(0, 1fr))' : 'repeat(2, minmax(0, 1fr))'),
+      footGap: mobile ? 32 : 40,
+      email: this.state.email, done: this.state.done, notDone: !this.state.done,
+      onEmail: (e) => this.setState({ email: e && e.target ? e.target.value : '' }),
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ done: true }); },
+      fabRight: mobile ? 16 : 24, fabBottom: mobile ? 16 : 24
+    };
+  }
+}
+</script>
+</body>
+</html>

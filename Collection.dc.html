@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Sale collection (Black November)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width: 100%; background: #FFFFFF; color: #0B0B0C; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip">
+
+<dc-import name="Header" active="SALE" count="{{ cartCount }}" on-cart="{{ openCart }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="100%,164px"></dc-import>
+
+<main style="max-width: 1320px; margin: 0 auto; padding: 0 {{ gx }}px {{ secY }}px; box-sizing: border-box">
+
+<nav aria-label="Breadcrumb" style="padding: 16px 0 14px">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: #5E5E66">
+<li><a href="{{ L.home }}" style="color: #5E5E66; text-decoration: none">Home</a></li>
+<li aria-hidden="true">/</li>
+<li aria-current="page" style="color: #0B0B0C; font-weight: 700">Sale</li>
+</ol>
+</nav>
+
+<!-- Collection banner -->
+<section aria-label="Sale" style="border-radius: 16px; background: #0B0B0C; color: #FFFFFF; padding: {{ bannerPad }}px; display: grid; grid-template-columns: {{ bannerCols }}; gap: {{ bannerGap }}px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}"><span style="width: 8px; height: 8px; background: {{ a.f }}; display: inline-block"></span>Black November deals</span>
+<h1 style="margin: 0; font-size: {{ h1 }}px; font-weight: 900; font-stretch: 115%; text-transform: uppercase; line-height: 0.92">Sale</h1>
+<p style="margin: 0; max-width: 640px; font-size: 15px; line-height: 1.55; color: #A9A9B2; display: -webkit-box; -webkit-line-clamp: {{ descLines }}; -webkit-box-orient: vertical; overflow: hidden">Upgrade your wardrobe without breaking the bank with our Sale Collection on trendy pieces that will have you feeling and looking your best. That's right, you can get your hands on unique fashion finds for a fraction of the cost. Why worry when you can make your money work for you? Happy shopping!</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
+<button type="button" onClick="{{ toggleDesc }}" style="font-family: inherit; height: 32px; padding: 0; border: none; background: transparent; color: #FFFFFF; font-size: 13px; font-weight: 800; text-decoration: underline; cursor: pointer">{{ descLabel }}</button>
+<span style="font-size: 13px; color: #A9A9B2">1,869 products</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: {{ cdAlign }}; gap: 12px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A9B2">Drop 01 ends in</span>
+<dc-import name="Countdown" seconds="{{ dropSecs }}" tone="dark" kind="boxes" size="{{ cdSize }}" acc="{{ accKey }}" hint-size="260px,72px"></dc-import>
+<a href="{{ L.home }}" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 18px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">This week: dresses up to 50% off</a>
+</div>
+</section>
+
+<!-- Quick filter chips -->
+<div role="toolbar" aria-label="Quick filters" style="display: flex; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 18px 0 6px; margin: 0 {{ bleed }}px; padding-left: {{ bleedPad }}px; padding-right: {{ bleedPad }}px">
+<sc-for list="{{ tierChips }}" as="c" hint-placeholder-count="5">
+<button type="button" aria-pressed="{{ c.pressed }}" onClick="{{ c.pick }}" style="font-family: inherit; flex-shrink: 0; height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid {{ c.border }}; background: {{ c.bg }}; color: {{ c.fg }}; font-size: 13px; font-weight: 800; white-space: nowrap; cursor: pointer">{{ c.t }}</button>
+</sc-for>
+<span aria-hidden="true" style="flex-shrink: 0; width: 1px; height: 24px; background: #E6E6E3; margin: 0 6px"></span>
+<sc-for list="{{ subColls }}" as="s" hint-placeholder-count="8">
+<a href="{{ L.coll }}" style="flex-shrink: 0; display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border-radius: 999px; background: #F3F2EF; color: #0B0B0C; font-size: 13px; text-decoration: none; white-space: nowrap">{{ s.t }}</a>
+</sc-for>
+</div>
+
+<!-- Mobile filter bar -->
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<div style="position: sticky; top: 0; z-index: 30; background: #FFFFFF; margin: 8px -16px 0; padding: 10px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #E6E6E3">
+<button type="button" onClick="{{ openSheet }}" style="font-family: inherit; flex: 1 1 auto; height: 44px; border-radius: 8px; border: 1.5px solid #0B0B0C; background: #FFFFFF; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+Filter &amp; sort{{ activeCountLabel }}</button>
+<span style="font-size: 13px; color: #5E5E66; white-space: nowrap">{{ shownCount }} items</span>
+</div>
+</sc-if>
+
+<div style="display: grid; grid-template-columns: {{ layoutCols }}; gap: 32px; align-items: start; padding-top: {{ layoutTop }}px">
+
+<!-- Filters: sidebar on desktop, bottom sheet on mobile -->
+<sc-if value="{{ sheetBackdrop }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeSheet }}" style="position: fixed; inset: 0; z-index: 140; background: rgba(11, 11, 12, 0.55)"></div>
+</sc-if>
+<aside aria-label="Filters" style="position: {{ fPos }}; top: {{ fTop }}; left: {{ fSide }}; right: {{ fSide }}; bottom: {{ fSide }}; z-index: 150; display: {{ fDisplay }}; flex-direction: column; background: #FFFFFF; border-radius: {{ fRadius }}; max-height: {{ fMaxH }}; overflow-y: {{ fOverflow }}; box-shadow: {{ fShadow }}">
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<div style="position: sticky; top: 0; z-index: 2; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 12px 12px 12px 18px; border-bottom: 1px solid #E6E6E3">
+<span style="font-size: 16px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em">Filter &amp; sort</span>
+<button type="button" aria-label="Close filters" onClick="{{ closeSheet }}" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</sc-if>
+<div style="display: flex; flex-direction: column; padding: {{ fInnerPad }}">
+<label for="sz-coll-search" style="font-size: 12px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #5E5E66; margin-bottom: 8px">Search this collection</label>
+<input id="sz-coll-search" type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="e.g. bodycon, jeans, Lizola" style="height: 44px; padding: 0 12px; border-radius: 8px; border: 1.5px solid #E6E6E3; font-family: inherit; font-size: 14px; color: #0B0B0C; outline: none; margin-bottom: 8px">
+
+<sc-for list="{{ sections }}" as="sec" hint-placeholder-count="7">
+<div style="border-bottom: 1px solid #E6E6E3">
+<button type="button" aria-expanded="{{ sec.expanded }}" onClick="{{ sec.toggle }}" style="font-family: inherit; width: 100%; height: 52px; padding: 0; display: flex; align-items: center; justify-content: space-between; border: none; background: transparent; color: #0B0B0C; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer">
+<span>{{ sec.t }}<span style="color: {{ a.t }}">{{ sec.badge }}</span></span>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{ sec.rot }}deg)"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<sc-if value="{{ sec.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 0 16px; display: flex; flex-wrap: {{ sec.wrap }}; flex-direction: {{ sec.dir }}; gap: {{ sec.gap }}px">
+<sc-for list="{{ sec.opts }}" as="o" hint-placeholder-count="5">
+<button type="button" role="{{ o.role }}" aria-checked="{{ o.checked }}" onClick="{{ o.pick }}" style="font-family: inherit; display: inline-flex; align-items: center; gap: 10px; min-height: {{ o.h }}px; padding: {{ o.pad }}; border-radius: {{ o.radius }}px; border: 1.5px solid {{ o.border }}; background: {{ o.bg }}; color: {{ o.fg }}; font-size: 14px; font-weight: {{ o.weight }}; text-align: left; cursor: pointer">
+<sc-if value="{{ o.box }}" hint-placeholder-val="{{ true }}">
+<span aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; border-radius: {{ o.boxRadius }}px; border: 1.5px solid {{ o.boxBorder }}; background: {{ o.boxBg }}; display: inline-flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="{{ o.tick }}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+</sc-if>
+<sc-if value="{{ o.swatch }}" hint-placeholder-val="{{ false }}">
+<span aria-hidden="true" style="width: 18px; height: 18px; flex-shrink: 0; border-radius: 999px; background: {{ o.color }}; border: 1px solid #CFCFCB"></span>
+</sc-if>
+<span>{{ o.t }}</span>
+<sc-if value="{{ o.hasCount }}" hint-placeholder-val="{{ true }}">
+<span style="margin-left: auto; font-size: 12.5px; color: #5E5E66">{{ o.count }}</span>
+</sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+
+<button type="button" onClick="{{ clearAll }}" style="font-family: inherit; margin-top: 16px; height: 44px; border-radius: 8px; border: 1.5px solid #0B0B0C; background: #FFFFFF; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Clear all filters</button>
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ closeSheet }}" style="font-family: inherit; position: sticky; bottom: 12px; margin-top: 12px; height: 52px; border-radius: 8px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Show {{ shownCount }} results</button>
+</sc-if>
+</div>
+</aside>
+
+<!-- Results -->
+<section aria-label="Products" style="min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="font-size: 14px; color: #5E5E66">Showing <span style="color: #0B0B0C; font-weight: 800">{{ shownCount }}</span> of 1,869 products</span>
+<sc-for list="{{ activeChips }}" as="ac" hint-placeholder-count="2">
+<button type="button" aria-label="{{ ac.label }}" onClick="{{ ac.remove }}" style="font-family: inherit; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border-radius: 999px; border: none; background: #0B0B0C; color: #FFFFFF; font-size: 12.5px; font-weight: 700; cursor: pointer">{{ ac.t }}
+<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</sc-for>
+</div>
+<sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+<label style="display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Sort by
+<select value="{{ sort }}" onChange="{{ onSort }}" style="height: 44px; padding: 0 12px; border-radius: 8px; border: 1.5px solid #E6E6E3; background: #FFFFFF; font-family: inherit; font-size: 14px; color: #0B0B0C; text-transform: none; letter-spacing: 0">
+<option value="featured">Featured</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="newest">Newest: New to Old</option>
+<option value="oldest">Oldest: Old to New</option>
+<option value="discount">Biggest discount</option>
+</select>
+</label>
+</sc-if>
+</div>
+
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 40px 24px; border-radius: 16px; background: #F3F2EF; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px">
+<span style="font-size: 18px; font-weight: 900; text-transform: uppercase">No matches</span>
+<span style="font-size: 15px; color: #5E5E66">Try removing a filter.</span>
+<button type="button" onClick="{{ clearAll }}" style="font-family: inherit; height: 44px; padding: 0 18px; border-radius: 6px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Clear all filters</button>
+</div>
+</sc-if>
+
+<div style="display: grid; grid-template-columns: {{ gridCols }}; gap: {{ gridGap }}">
+<sc-for list="{{ grid }}" as="x" hint-placeholder-count="8">
+<sc-if value="{{ x.isPromo }}" hint-placeholder-val="{{ false }}">
+<a href="{{ L.home }}" style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 18px; border-radius: 12px; background: #0B0B0C; color: #FFFFFF; text-decoration: none; min-height: 100%; box-sizing: border-box">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Today only</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 30px; font-weight: 900; font-stretch: 115%; text-transform: uppercase; line-height: 0.95">Flash deals</span>
+<span style="font-size: 14px; line-height: 1.45; color: #A9A9B2">Up to 80% off. New deals at midnight.</span>
+</span>
+<dc-import name="Countdown" seconds="{{ flashSecs }}" tone="dark" kind="boxes" size="sm" acc="{{ accKey }}" hint-size="150px,58px"></dc-import>
+<span style="display: inline-flex; align-items: center; justify-content: center; height: 44px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase">See today's deals</span>
+</a>
+</sc-if>
+<sc-if value="{{ x.isProduct }}" hint-placeholder-val="{{ true }}">
+<dc-import name="ProductCard" p="{{ x.p }}" sizes="1" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,480px"></dc-import>
+</sc-if>
+</sc-for>
+</div>
+
+<div style="margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 12px">
+<span style="font-size: 14px; color: #5E5E66">You've viewed {{ shownCount }} of 1,869 products</span>
+<span style="width: 240px; height: 4px; border-radius: 999px; background: #E6E6E3; display: block; overflow: hidden"><span style="width: {{ progress }}%; height: 100%; background: {{ a.f }}; display: block"></span></span>
+<button type="button" style="font-family: inherit; height: 48px; padding: 0 28px; border-radius: 6px; border: 1.5px solid #0B0B0C; background: #FFFFFF; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Load more</button>
+</div>
+</section>
+
+</div>
+</main>
+
+<dc-import name="Footer" mob="{{ mob }}" acc="{{ accKey }}" hint-size="100%,700px"></dc-import>
+<dc-import name="Cart" open="{{ cartOpen }}" on-close="{{ closeCart }}" on-change="{{ setCount }}" added="{{ lastAdded }}" added-key="{{ addKey }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="0px,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"enum","options":["lime","orange","red","gold"],"default":"lime","section":"Black November"},"mob":{"editor":null},"$preview":{"width":1440,"height":3460}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const IMG = {
+  c_dale: 'assets/c_dale.webp',
+  c_bana: 'assets/c_bana.webp',
+  c_denim: 'assets/c_denim.webp',
+  c_valtank: 'assets/c_valtank.webp',
+  c_shelby: 'assets/c_shelby.webp',
+  c_ava: 'assets/c_ava.webp',
+  c_mandy: 'assets/c_mandy.webp',
+  c_bangle6: 'assets/c_bangle6.webp',
+  c_branok: 'assets/c_branok.webp',
+  c_everyday_blue: 'assets/c_everyday_blue.webp',
+  c_hobemty: 'assets/c_hobemty.webp',
+  c_malaika: 'assets/c_malaika.webp',
+  c_bodysuit: 'assets/c_bodysuit.webp',
+  c_avah: 'assets/c_avah.webp',
+  c_sharagano: 'assets/c_sharagano.webp',
+  c_bandeau: 'assets/c_bandeau.webp'
+};
+const L3 = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
+// Real products, prices and stock from the Sale collection on shopzetu.com (14 Oct 2026).
+const PRODUCTS = [
+  { id: 'dale', title: 'Lizola Dale Bodycon Dress - Green', vendor: 'Lizola', img: IMG.c_dale, price: 2999, compare: 8200, sizes: L3, cat: 'Dresses', type: 'Bodycons', colour: 'Green', stock: 59 },
+  { id: 'bana', title: 'Vivo Bana Batwing Top - Navy Blue', vendor: 'Vivo', img: IMG.c_bana, price: 2050, compare: 3950, sizes: ['XS/S', 'S/M', 'M/L', 'L/XL', '1X/2X'], cat: 'Tops', type: 'Loose Tops', colour: 'Blue', stock: 4 },
+  { id: 'denim', title: 'Denim Haven High Rise Skinny Ripped Jeans - Deep Blue', vendor: 'Denim Haven', img: IMG.c_denim, price: 700, compare: 3500, sizes: ['30', '32', '34', '36', '38', '40', '42'], cat: 'Bottoms', type: 'Denim Bottoms', colour: 'Blue', stock: 5 },
+  { id: 'valtank', title: 'Zoya Basic Val Tank Top - Forest Green', vendor: 'Zoya', img: IMG.c_valtank, price: 850, compare: 1550, sizes: ['S', 'M', 'L', '1X', '2X', '3X'], cat: 'Tops', type: 'T-shirts & Tank Tops', colour: 'Green', stock: 1 },
+  { id: 'shelby', title: 'Lucille Couture Shelby Pleated Hem Wrap Dress - Red', vendor: 'Lucille Couture', img: IMG.c_shelby, price: 8000, compare: 10000, sizes: ['M', 'L', 'XL'], cat: 'Dresses', type: 'Midi & Capri Dresses', colour: 'Red', stock: 1 },
+  { id: 'ava', title: 'Vivo Ava Tapered Pants - Black', vendor: 'Vivo', img: IMG.c_ava, price: 1350, compare: 3950, sizes: ['XS', 'S', 'M', 'L', '1X', '2X', '3X', '4X'], cat: 'Bottoms', type: 'Full Length Pants', colour: 'Black', stock: 1 },
+  { id: 'mandy', title: 'Lizola Mandy Bodycon Dress - Navy Blue', vendor: 'Lizola', img: IMG.c_mandy, price: 2999, compare: 8200, sizes: L3, cat: 'Dresses', type: 'Bodycons', colour: 'Blue', stock: 56 },
+  { id: 'bangle6', title: 'Afrodame Chunky Bangle - Gold', vendor: 'AfroDame', img: IMG.c_bangle6, price: 800, compare: 1200, sizes: ['F'], cat: 'Accessories', type: 'Bangles', colour: 'Gold', stock: 8 },
+  { id: 'branok', title: 'Lizola Branok Bodycon Dress - Navy Blue', vendor: 'Lizola', img: IMG.c_branok, price: 5500, compare: 8200, sizes: L3, cat: 'Dresses', type: 'Bodycons', colour: 'Blue', stock: 57 },
+  { id: 'everyday_blue', title: 'Vivo Everyday Cap Sleeve Top in Jersey - Powder Blue', vendor: 'Vivo', img: IMG.c_everyday_blue, price: 1900, compare: 2200, sizes: ['S', 'M', 'L', '1X', '2X'], cat: 'Tops', type: 'Fitted Tops', colour: 'Blue', stock: 11 },
+  { id: 'hobemty', title: 'Lucille Couture Hobemty Sheath Dress - Royal Blue', vendor: 'Lucille Couture', img: IMG.c_hobemty, price: 6999, compare: 8000, sizes: ['M', 'L', 'XL'], cat: 'Dresses', type: 'Knee Length Dresses', colour: 'Blue', stock: 1 },
+  { id: 'malaika', title: 'Lizola Malaika Bodycon Dress - Mustard', vendor: 'Lizola', img: IMG.c_malaika, price: 2999, compare: 8200, sizes: L3, cat: 'Dresses', type: 'Bodycons', colour: 'Gold', stock: 60 },
+  { id: 'bodysuit', title: 'Vivo Basic Long Sleeve Bodysuit in Jersey - Off White', vendor: 'Vivo', img: IMG.c_bodysuit, price: 2550, compare: 2900, sizes: ['S', 'M', 'L', '1X', '2X'], cat: 'Tops', type: 'Bodysuits', colour: 'White', stock: 10 },
+  { id: 'avah', title: 'Lizola Avah Bodycon Dress - Maroon', vendor: 'Lizola', img: IMG.c_avah, price: 2999, compare: 8200, sizes: L3, cat: 'Dresses', type: 'Bodycons', colour: 'Red', stock: 60 },
+  { id: 'sharagano', title: 'Lucille Couture Sharagano Pleated Shirt Dress', vendor: 'Lucille Couture', img: IMG.c_sharagano, price: 8000, compare: 10000, sizes: ['M', 'L', 'XL'], cat: 'Dresses', type: 'Shirt Dresses', colour: 'Gold', stock: 1 }
+].map((p, i) => Object.assign(p, { order: i, pct: Math.round((1 - p.price / p.compare) * 100) }));
+
+const TIERS = [
+  { id: 'all', t: 'All deals' },
+  { id: 't30', t: 'Up to 30% off', min: 0, max: 30 },
+  { id: 't50', t: 'Up to 50% off', min: 31, max: 50 },
+  { id: 't70', t: 'Up to 70% off', min: 51, max: 70 },
+  { id: 'u2k', t: 'Under KES 2,000', price: 2000 }
+];
+const SUBS = ['Vivo On Sale', 'Dresses on Sale', 'Bottoms on Sale', 'Tops On Sale', 'Outerwear on Sale', 'Accessories On Sale', 'Jewelry On Sale', "Women's Footwear On Sale"];
+const DISCOUNTS = [{ v: 0, t: 'Any discount' }, { v: 10, t: '10% off or more' }, { v: 30, t: '30% off or more' }, { v: 50, t: '50% off or more' }, { v: 70, t: '70% off or more' }];
+const PRICES = [{ v: 0, t: 'Any price' }, { v: 1600, t: 'Under KES 1,600' }, { v: 2000, t: 'Under KES 2,000' }, { v: 3000, t: 'Under KES 3,000' }, { v: 4000, t: 'Under KES 4,000' }];
+const COLOURS = [
+  { v: 'Black', c: '#0B0B0C' }, { v: 'Blue', c: '#2F4B8A' }, { v: 'Green', c: '#2E6B45' },
+  { v: 'Red', c: '#9E2A2B' }, { v: 'Gold', c: '#D4A017' }, { v: 'White', c: '#F4F1E8' }
+];
+const SIZE_LIST = ['XS', 'S', 'M', 'L', 'XL', '2XL', '1X', '2X', '3X'];
+const CATS = ['Dresses', 'Tops', 'Bottoms', 'Accessories'];
+const TYPES = ['Bodycons', 'Shirt Dresses', 'Knee Length Dresses', 'Midi & Capri Dresses', 'Fitted Tops', 'Loose Tops', 'Bodysuits', 'T-shirts & Tank Tops', 'Full Length Pants', 'Denim Bottoms', 'Bangles'];
+
+function toggleIn(list, v) { return list.indexOf(v) >= 0 ? list.filter((x) => x !== v) : list.concat([v]); }
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    this.state = {
+      w: iw, cartOpen: false, cartCount: 3, addKey: 0, lastAdded: null,
+      q: '', tier: 'all', brands: [], sizes: [], colours: [], disc: 0, price: 0, cats: [], types: [],
+      sort: 'featured', open: { Brand: true, Discount: true }, sheet: false, desc: false
+    };
+    this.ro = null;
+    this.rootEl = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+    this.openCart = () => this.setState({ cartOpen: true });
+    this.closeCart = () => this.setState({ cartOpen: false });
+    this.setCount = (n) => { if (typeof n === 'number' && n !== this.state.cartCount) this.setState({ cartCount: n }); };
+    this.addToCart = (p) => this.setState((s) => ({ cartOpen: true, addKey: s.addKey + 1, lastAdded: p || null }));
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+  filtered() {
+    const s = this.state;
+    const ql = (s.q || '').trim().toLowerCase();
+    const tier = TIERS.find((t) => t.id === s.tier) || TIERS[0];
+    let list = PRODUCTS.filter((p) => {
+      if (ql && (p.title + ' ' + p.vendor + ' ' + p.type).toLowerCase().indexOf(ql) < 0) return false;
+      if (tier.max !== undefined && (p.pct < tier.min || p.pct > tier.max)) return false;
+      if (tier.price && p.price >= tier.price) return false;
+      if (s.brands.length && s.brands.indexOf(p.vendor) < 0) return false;
+      if (s.sizes.length && !p.sizes.some((z) => s.sizes.indexOf(z) >= 0)) return false;
+      if (s.colours.length && s.colours.indexOf(p.colour) < 0) return false;
+      if (s.disc && p.pct < s.disc) return false;
+      if (s.price && p.price >= s.price) return false;
+      if (s.cats.length && s.cats.indexOf(p.cat) < 0) return false;
+      if (s.types.length && s.types.indexOf(p.type) < 0) return false;
+      return true;
+    });
+    const by = {
+      'price-asc': (a, b) => a.price - b.price,
+      'price-desc': (a, b) => b.price - a.price,
+      newest: (a, b) => b.order - a.order,
+      oldest: (a, b) => a.order - b.order,
+      discount: (a, b) => b.pct - a.pct,
+      featured: (a, b) => a.order - b.order
+    }[s.sort] || ((a, b) => a.order - b.order);
+    list = list.slice().sort(by);
+    return list;
+  }
+  renderVals() {
+    const s = this.state;
+    const w = s.w;
+    const mobile = w < 760;
+    const tablet = !mobile && w < 1100;
+    const desk = w >= 1100;
+    const mob = this.props.mob ? '1' : '';
+    const accKey = ACCENTS[this.props.accent] ? this.props.accent : 'lime';
+    const a = ACCENTS[accKey];
+    const L = mob
+      ? { home: 'MobileHome.dc.html', coll: 'MobileCollection.dc.html', pdp: 'MobileProduct.dc.html' }
+      : { home: './', coll: 'Collection.dc.html', pdp: 'Product.dc.html' };
+    const list = this.filtered();
+    const cols = desk ? 4 : (tablet ? 3 : 2);
+    const grid = list.map((p) => ({ isPromo: false, isProduct: true, p }));
+    if (grid.length > 6) grid.splice(desk ? 6 : 4, 0, { isPromo: true, isProduct: false, p: null });
+
+    const opt = (label, on, pick, extra) => Object.assign({
+      t: label, role: 'checkbox', checked: on ? 'true' : 'false', pick,
+      h: 40, pad: '0 4px', radius: 6, border: 'transparent', bg: 'transparent', fg: '#0B0B0C', weight: on ? 800 : 500,
+      box: true, boxRadius: 4, boxBorder: on ? '#0B0B0C' : '#BDBDB8', boxBg: on ? '#0B0B0C' : '#FFFFFF', tick: on ? '#FFFFFF' : 'transparent',
+      swatch: false, color: 'transparent', hasCount: false, count: ''
+    }, extra || {});
+    const chipOpt = (label, on, pick) => opt(label, on, pick, {
+      role: 'checkbox', h: 40, pad: '0 12px', radius: 999, border: on ? '#0B0B0C' : '#E6E6E3',
+      bg: on ? '#0B0B0C' : '#FFFFFF', fg: on ? '#FFFFFF' : '#0B0B0C', box: false
+    });
+    const radioOpt = (label, on, pick) => opt(label, on, pick, { role: 'radio', boxRadius: 999, tick: on ? '#FFFFFF' : 'transparent' });
+
+    const brandsAll = [];
+    PRODUCTS.forEach((p) => { if (brandsAll.indexOf(p.vendor) < 0) brandsAll.push(p.vendor); });
+    const sectionDefs = [
+      { t: 'Brand', badge: s.brands.length ? ' · ' + s.brands.length : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: brandsAll.map((b) => opt(b, s.brands.indexOf(b) >= 0, () => this.setState({ brands: toggleIn(this.state.brands, b) }), { hasCount: true, count: String(PRODUCTS.filter((p) => p.vendor === b).length) })) },
+      { t: 'Size', badge: s.sizes.length ? ' · ' + s.sizes.length : '', dir: 'row', wrap: 'wrap', gap: 8,
+        opts: SIZE_LIST.map((z) => chipOpt(z, s.sizes.indexOf(z) >= 0, () => this.setState({ sizes: toggleIn(this.state.sizes, z) }))) },
+      { t: 'Colour', badge: s.colours.length ? ' · ' + s.colours.length : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: COLOURS.map((c) => opt(c.v, s.colours.indexOf(c.v) >= 0, () => this.setState({ colours: toggleIn(this.state.colours, c.v) }), { box: false, swatch: true, color: c.c, weight: s.colours.indexOf(c.v) >= 0 ? 800 : 500, border: s.colours.indexOf(c.v) >= 0 ? '#0B0B0C' : 'transparent', pad: '0 8px' })) },
+      { t: 'Price range', badge: s.price ? ' · 1' : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: PRICES.map((p) => radioOpt(p.t, s.price === p.v, () => this.setState({ price: p.v }))) },
+      { t: 'Discount', badge: s.disc ? ' · 1' : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: DISCOUNTS.map((d) => radioOpt(d.t, s.disc === d.v, () => this.setState({ disc: d.v }))) },
+      { t: 'Category', badge: s.cats.length ? ' · ' + s.cats.length : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: CATS.map((c) => opt(c, s.cats.indexOf(c) >= 0, () => this.setState({ cats: toggleIn(this.state.cats, c) }), { hasCount: true, count: String(PRODUCTS.filter((p) => p.cat === c).length) })) },
+      { t: 'Product type', badge: s.types.length ? ' · ' + s.types.length : '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: TYPES.map((tp) => opt(tp, s.types.indexOf(tp) >= 0, () => this.setState({ types: toggleIn(this.state.types, tp) }))) }
+    ];
+    if (mobile) {
+      sectionDefs.unshift({ t: 'Sort by', badge: '', dir: 'column', wrap: 'nowrap', gap: 2,
+        opts: [['featured', 'Featured'], ['price-asc', 'Price: Low to High'], ['price-desc', 'Price: High to Low'], ['newest', 'Newest: New to Old'], ['oldest', 'Oldest: Old to New'], ['discount', 'Biggest discount']]
+          .map((o) => radioOpt(o[1], s.sort === o[0], () => this.setState({ sort: o[0] }))) });
+    }
+    const sections = sectionDefs.map((d) => {
+      const open = !!s.open[d.t];
+      return Object.assign(d, {
+        open, expanded: open ? 'true' : 'false', rot: open ? 180 : 0,
+        toggle: () => { const o = Object.assign({}, this.state.open); o[d.t] = !o[d.t]; this.setState({ open: o }); }
+      });
+    });
+
+    const chips = [];
+    const tierObj = TIERS.find((t) => t.id === s.tier);
+    if (tierObj && tierObj.id !== 'all') chips.push({ t: tierObj.t, remove: () => this.setState({ tier: 'all' }) });
+    s.brands.forEach((b) => chips.push({ t: b, remove: () => this.setState({ brands: this.state.brands.filter((x) => x !== b) }) }));
+    s.sizes.forEach((z) => chips.push({ t: 'Size ' + z, remove: () => this.setState({ sizes: this.state.sizes.filter((x) => x !== z) }) }));
+    s.colours.forEach((c) => chips.push({ t: c, remove: () => this.setState({ colours: this.state.colours.filter((x) => x !== c) }) }));
+    if (s.price) chips.push({ t: (PRICES.find((p) => p.v === s.price) || {}).t || '', remove: () => this.setState({ price: 0 }) });
+    if (s.disc) chips.push({ t: (DISCOUNTS.find((d) => d.v === s.disc) || {}).t || '', remove: () => this.setState({ disc: 0 }) });
+    s.cats.forEach((c) => chips.push({ t: c, remove: () => this.setState({ cats: this.state.cats.filter((x) => x !== c) }) }));
+    s.types.forEach((tp) => chips.push({ t: tp, remove: () => this.setState({ types: this.state.types.filter((x) => x !== tp) }) }));
+    if (s.q) chips.push({ t: '“' + s.q + '”', remove: () => this.setState({ q: '' }) });
+    const activeChips = chips.map((c) => Object.assign(c, { label: 'Remove filter ' + c.t }));
+
+    const sheetOpen = mobile && s.sheet;
+    return {
+      rootRef: this.rootRef, mob, accKey, a, L,
+      mobile, notMobile: !mobile,
+      gx: mobile ? 16 : (desk ? 32 : 24), secY: mobile ? 44 : 72,
+      bleed: mobile ? -16 : 0, bleedPad: mobile ? 16 : 0,
+      h1: mobile ? 52 : 84,
+      bannerPad: mobile ? 20 : 32, bannerGap: mobile ? 20 : 40,
+      bannerCols: desk ? 'minmax(0, 1fr) auto' : 'minmax(0, 1fr)', cdAlign: desk ? 'flex-end' : 'flex-start',
+      cdSize: mobile ? 'sm' : 'md', dropSecs: 279729, flashSecs: 20529,
+      descLines: s.desc ? 12 : 2, descLabel: s.desc ? 'Read less' : 'Read more',
+      toggleDesc: () => this.setState({ desc: !this.state.desc }),
+      tierChips: TIERS.map((t) => {
+        const on = s.tier === t.id;
+        return { t: t.t, pressed: on ? 'true' : 'false', bg: on ? '#0B0B0C' : '#FFFFFF', fg: on ? '#FFFFFF' : '#0B0B0C', border: on ? '#0B0B0C' : '#E6E6E3', pick: () => this.setState({ tier: t.id }) };
+      }),
+      subColls: SUBS.map((t) => ({ t })),
+      layoutCols: desk ? '264px minmax(0, 1fr)' : 'minmax(0, 1fr)', layoutTop: mobile ? 16 : 24,
+      fPos: desk ? 'sticky' : 'fixed', fTop: desk ? '24px' : 'auto', fSide: desk ? 'auto' : '0',
+      fDisplay: (desk || sheetOpen) ? 'flex' : 'none',
+      fRadius: desk ? '0' : '18px 18px 0 0', fMaxH: desk ? 'none' : '86vh', fOverflow: desk ? 'visible' : 'auto',
+      fShadow: desk ? 'none' : '0 -16px 40px rgba(11, 11, 12, 0.25)', fInnerPad: desk ? '0' : '16px 18px 24px',
+      sheetBackdrop: sheetOpen,
+      openSheet: () => this.setState({ sheet: true }), closeSheet: () => this.setState({ sheet: false }),
+      q: s.q, onQ: (e) => this.setState({ q: e && e.target ? e.target.value : '' }),
+      sections,
+      clearAll: () => this.setState({ q: '', tier: 'all', brands: [], sizes: [], colours: [], disc: 0, price: 0, cats: [], types: [] }),
+      activeChips, activeCountLabel: activeChips.length ? ' (' + activeChips.length + ')' : '',
+      sort: s.sort, onSort: (e) => this.setState({ sort: e && e.target ? e.target.value : 'featured' }),
+      shownCount: list.length, noResults: list.length === 0,
+      progress: Math.max(2, Math.round(list.length / 1869 * 100)),
+      grid, gridCols: 'repeat(' + cols + ', minmax(0, 1fr))', gridGap: mobile ? '20px 12px' : '28px 16px',
+      cartOpen: s.cartOpen, cartCount: s.cartCount, addKey: s.addKey, lastAdded: s.lastAdded,
+      openCart: this.openCart, closeCart: this.closeCart, setCount: this.setCount, addToCart: this.addToCart
+    };
+  }
+}
+</script>
+</body>
+</html>

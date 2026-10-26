@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Product card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<article style="width: 100%; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; color: {{ fg }}; -webkit-font-smoothing: antialiased">
+<div style="position: relative; border-radius: 12px; overflow: hidden; background: {{ imgBg }}; aspect-ratio: 5 / 8">
+<a href="{{ pdp }}" aria-label="{{ p.title }}" style="position: absolute; inset: 0; display: block">
+<img src="{{ p.img }}" alt="{{ p.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: {{ fit }}; object-position: {{ pos }}; display: block">
+</a>
+<div style="position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; pointer-events: none">
+<sc-if value="{{ hasPct }}" hint-placeholder-val="{{ true }}">
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 8px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900">-{{ pct }}%</span>
+</sc-if>
+<sc-if value="{{ isNew }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 9px; border-radius: 6px; background: #0B0B0C; color: #FFFFFF; font-size: 11px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase">New</span>
+</sc-if>
+<sc-if value="{{ hasRank }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 9px; border-radius: 6px; background: #FFFFFF; color: #0B0B0C; font-size: 12.5px; font-weight: 900">#{{ rank }}</span>
+</sc-if>
+</div>
+<button type="button" aria-pressed="{{ wishPressed }}" aria-label="{{ wishLabel }}" onClick="{{ toggleWish }}" style="font-family: inherit; position: absolute; top: 6px; right: 6px; width: 40px; height: 40px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.94); display: inline-flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="19" height="19" viewBox="0 0 24 24" fill="{{ wishFill }}" stroke="{{ wishStroke }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.6 1.2 4.6 2.7C12 6.2 13.6 5 15.6 5 19 5 20.7 8.4 19.2 11.4 17 15.6 12 20 12 20z"></path></svg>
+</button>
+<div style="position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none">
+<sc-if value="{{ hasDrop }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; background: #0B0B0C; color: {{ a.f }}; font-size: 10.5px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase">{{ drop }}</span>
+</sc-if>
+<sc-if value="{{ low }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; background: #FFFFFF; color: #0B0B0C; font-size: 11px; font-weight: 800">{{ lowText }}</span>
+</sc-if>
+<sc-if value="{{ hasTag }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 6px; background: rgba(11, 11, 12, 0.86); color: #FFFFFF; font-size: 11px; font-weight: 700">{{ tag }}</span>
+</sc-if>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 5px; padding: 12px 2px 0">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: {{ muted }}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ p.vendor }}</span>
+<a href="{{ pdp }}" style="font-size: 14px; line-height: 1.35; min-height: 38px; color: {{ fg }}; text-decoration: none; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ p.title }}</a>
+<sc-if value="{{ showSizes }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 12px; color: {{ muted }}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ sizesText }}</span>
+</sc-if>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; min-width: 0">
+<span style="font-size: 15.5px; font-weight: 900; color: {{ priceColor }}; white-space: nowrap">{{ priceStr }}</span>
+<sc-if value="{{ showCompare }}" hint-placeholder-val="{{ true }}">
+<s style="font-size: 12.5px; color: {{ muted }}; white-space: nowrap">{{ compareStr }}</s>
+</sc-if>
+</div>
+<button type="button" aria-label="{{ addLabel }}" onClick="{{ add }}" style="font-family: inherit; width: 44px; height: 44px; flex-shrink: 0; border-radius: 999px; border: none; background: {{ addBg }}; color: {{ addFg }}; display: inline-flex; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{ notAdded }}" hint-placeholder-val="{{ true }}">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+</sc-if>
+<sc-if value="{{ added }}" hint-placeholder-val="{{ false }}">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+</sc-if>
+</button>
+</div>
+</div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"p":{"editor":null},"tone":{"editor":"enum","options":["light","dark"],"default":"light"},"sizes":{"editor":null},"mob":{"editor":null},"acc":{"editor":null},"onAdd":{"editor":null},"$preview":{"width":300,"height":600}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const fmt = (n) => 'KES ' + Number(n).toLocaleString('en-US');
+const SAMPLE = {
+  id: 'zuri_green',
+  title: 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print',
+  vendor: 'Vivo',
+  img: 'assets/p_zuri_green.webp',
+  price: 4830, compare: 6900, drop: 'Drop 01', sizes: ['S', 'M', 'L', '1X', '2X'], stock: 9
+};
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    this.state = { wish: false, added: false };
+    this.t = null;
+  }
+  componentWillUnmount() {
+    if (this.t) clearTimeout(this.t);
+  }
+  renderVals() {
+    const p = this.props.p || SAMPLE;
+    const a = ACCENTS[this.props.acc] || ACCENTS.lime;
+    const dark = this.props.tone === 'dark';
+    const mob = !!this.props.mob;
+    const pct = p.compare && p.compare > p.price ? Math.round((1 - p.price / p.compare) * 100) : 0;
+    const lowAt = p.lowAt || 3;
+    const low = p.stock !== undefined && p.stock !== null && p.stock > 0 && p.stock <= lowAt;
+    const wish = this.state.wish;
+    const added = this.state.added;
+    return {
+      p, a,
+      pdp: mob ? 'MobileProduct.dc.html' : 'Product.dc.html',
+      fg: dark ? '#FFFFFF' : '#0B0B0C', muted: dark ? '#A9A9B2' : '#5E5E66', imgBg: p.bg ? p.bg : (dark ? '#1F1F22' : '#ECECEC'),
+      fit: p.fit || 'cover', pos: p.pos || '50% 30%',
+      hasPct: pct > 0, pct, isNew: !!p.isNew && pct === 0, hasRank: !!p.rank, rank: p.rank || 0,
+      hasDrop: !!p.drop, drop: p.drop || '',
+      low, lowText: p.stock === 1 ? 'Last one' : 'Only ' + p.stock + ' left',
+      hasTag: !!p.tag, tag: p.tag || '',
+      showSizes: this.props.sizes === '1' && !!(p.sizes && p.sizes.length), sizesText: (p.sizes || []).join('  ·  '),
+      priceStr: fmt(p.price), compareStr: pct > 0 ? fmt(p.compare) : '', showCompare: pct > 0,
+      priceColor: pct > 0 ? (dark ? a.f : a.t) : (dark ? '#FFFFFF' : '#0B0B0C'),
+      addBg: dark ? a.f : '#0B0B0C', addFg: dark ? '#0B0B0C' : '#FFFFFF',
+      addLabel: added ? 'Added to cart' : 'Add ' + p.title + ' to cart',
+      added, notAdded: !added,
+      wishPressed: wish ? 'true' : 'false', wishLabel: wish ? 'Remove from wishlist' : 'Save to wishlist',
+      wishFill: wish ? a.f : 'none', wishStroke: '#0B0B0C',
+      toggleWish: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ wish: !this.state.wish }); },
+      add: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        this.setState({ added: true });
+        if (this.props.onAdd) this.props.onAdd(p);
+        if (this.t) clearTimeout(this.t);
+        this.t = setTimeout(() => this.setState({ added: false }), 1800);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

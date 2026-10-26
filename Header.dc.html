@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Header, mega menu and search</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<header ref="{{ rootRef }}" style="position: {{ pos }}; top: {{ stickTop }}px; z-index: 60; width: 100%; background: #FFFFFF; color: #0B0B0C; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased">
+
+<!-- Promo bar -->
+<div style="background: #0B0B0C; color: #FFFFFF; height: 36px; font-size: 12px">
+<div style="max-width: 1320px; height: 100%; margin: 0 auto; padding: 0 {{ gx }}px; box-sizing: border-box; display: flex; align-items: center; justify-content: {{ promoJustify }}; gap: 16px">
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; gap: 8px; color: #FFFFFF; text-decoration: none; white-space: nowrap">
+<span style="width: 8px; height: 8px; background: {{ a.f }}; display: inline-block"></span>
+<span style="font-weight: 900; letter-spacing: 0.12em; color: {{ a.f }}">BLACK NOVEMBER</span>
+<span style="color: #D4D4D8">Up to 70% off · New drop every week</span>
+</a>
+</sc-if>
+<a href="{{ L.home }}" style="display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: #FFFFFF; text-decoration: none; white-space: nowrap; overflow: hidden">
+<span style="font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: {{ promo.strongColor }}">{{ promo.s }}</span>
+<span style="color: #D4D4D8; overflow: hidden; text-overflow: ellipsis">{{ promo.t }}</span>
+</a>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<a href="tel:0703420780" style="display: inline-flex; align-items: center; gap: 8px; color: #D4D4D8; text-decoration: none; white-space: nowrap">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+<span>Need help? <span style="color: #FFFFFF; font-weight: 700">0703 420 780</span></span>
+</a>
+</sc-if>
+</div>
+</div>
+
+<!-- Main row: desktop / tablet -->
+<sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+<div style="background: #FFFFFF">
+<div style="max-width: 1320px; margin: 0 auto; padding: 0 {{ gx }}px; box-sizing: border-box; height: 80px; display: flex; align-items: center; gap: 24px">
+<a href="{{ L.home }}" aria-label="Shopzetu home" style="display: inline-flex; flex-shrink: 0">
+<img loading="lazy" src="{{ img.logo }}" alt="Shopzetu" style="width: 54px; height: 54px; border-radius: 4px; display: block">
+</a>
+<div style="flex: 1 1 auto; display: flex; justify-content: center; min-width: 0">
+<div style="width: 100%; max-width: 640px; display: flex; align-items: center; gap: 8px">
+<label for="sz-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Search products</label>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; align-items: center; height: 46px; border: 1.5px solid {{ searchBorder }}; border-radius: 8px; padding: 0 6px 0 14px; box-sizing: border-box; background: #FFFFFF">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E5E66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input id="sz-search" type="search" value="{{ q }}" onChange="{{ onQ }}" onFocus="{{ openSearch }}" placeholder="Search products, brands and more" style="flex: 1 1 auto; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font-family: inherit; font-size: 15px; color: #0B0B0C; padding: 0 10px">
+<sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Clear search" onClick="{{ clearQ }}" style="font-family: inherit; width: 34px; height: 34px; border: none; border-radius: 999px; background: #F3F2EF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</sc-if>
+</div>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 14px; border-radius: 8px; border: 1.5px solid #E6E6E3; color: #0B0B0C; text-decoration: none; font-size: 13px; font-weight: 700; white-space: nowrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+Filters</a>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; flex-shrink: 0">
+<button type="button" aria-label="Account" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 999px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+<button type="button" aria-label="Wishlist" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 999px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.6 1.2 4.6 2.7C12 6.2 13.6 5 15.6 5 19 5 20.7 8.4 19.2 11.4 17 15.6 12 20 12 20z"></path></svg></button>
+<button type="button" aria-label="{{ cartLabel }}" onClick="{{ cartClick }}" style="font-family: inherit; position: relative; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 999px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<span style="position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: {{ a.f }}; color: #0B0B0C; font-size: 11px; font-weight: 900; display: inline-flex; align-items: center; justify-content: center">{{ count }}</span>
+</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- Main row: mobile -->
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<div style="height: 60px; padding: 0 8px; display: grid; grid-template-columns: 96px minmax(0, 1fr) 96px; align-items: center">
+<div style="display: flex; align-items: center">
+<button type="button" aria-label="Open menu" onClick="{{ openMenu }}" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button>
+</div>
+<a href="{{ L.home }}" aria-label="Shopzetu home" style="justify-self: center; display: inline-flex">
+<img loading="lazy" src="{{ img.logo }}" alt="Shopzetu" style="width: 44px; height: 44px; border-radius: 4px; display: block">
+</a>
+<div style="display: flex; align-items: center; justify-content: flex-end">
+<button type="button" aria-label="Wishlist" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.6 1.2 4.6 2.7C12 6.2 13.6 5 15.6 5 19 5 20.7 8.4 19.2 11.4 17 15.6 12 20 12 20z"></path></svg></button>
+<button type="button" aria-label="{{ cartLabel }}" onClick="{{ cartClick }}" style="font-family: inherit; position: relative; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
+<span style="position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 999px; background: {{ a.f }}; color: #0B0B0C; font-size: 11px; font-weight: 900; display: inline-flex; align-items: center; justify-content: center">{{ count }}</span>
+</button>
+</div>
+</div>
+<div style="padding: 0 16px 12px">
+<button type="button" onClick="{{ openSearch }}" style="font-family: inherit; width: 100%; height: 46px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 8px; border: 1.5px solid #E6E6E3; background: #FFFFFF; color: #5E5E66; font-size: 15px; text-align: left; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+Search products, brands and more</button>
+</div>
+</sc-if>
+
+<!-- Nav row + mega menu (desktop and tablet) -->
+<sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+<div onMouseLeave="{{ closeMega }}" style="position: relative; border-top: 1px solid #E6E6E3; border-bottom: 1px solid #E6E6E3; background: #FFFFFF">
+<nav aria-label="Main menu" style="max-width: 1320px; margin: 0 auto; padding: 0 {{ gx }}px; box-sizing: border-box; display: flex; align-items: center; justify-content: {{ navJustify }}; gap: {{ navGap }}px; height: 50px; overflow-x: {{ navOverflow }}; scrollbar-width: none; white-space: nowrap">
+<sc-for list="{{ nav }}" as="n" hint-placeholder-count="14">
+<a href="{{ L.coll }}" onMouseEnter="{{ n.enter }}" onFocus="{{ n.enter }}" aria-expanded="{{ n.expanded }}" style="display: inline-flex; align-items: center; height: {{ n.h }}px; padding: 0 {{ n.padX }}px; border-radius: {{ n.radius }}px; background: {{ n.bg }}; color: {{ n.fg }}; font-size: 12.5px; font-weight: {{ n.weight }}; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; border-bottom: 2px solid {{ n.line }}; box-sizing: border-box; flex-shrink: 0">{{ n.k }}</a>
+</sc-for>
+</nav>
+
+<sc-if value="{{ megaOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; top: 100%; left: 0; right: 0; background: #FFFFFF; border-top: 1px solid #E6E6E3; box-shadow: 0 28px 48px rgba(11, 11, 12, 0.14); z-index: 5">
+<div style="max-width: 1320px; margin: 0 auto; padding: 28px {{ gx }}px 32px; box-sizing: border-box; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<sc-if value="{{ mega.hasCols }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; gap: 20px 26px">
+<sc-for list="{{ mega.cols }}" as="c" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 2px; min-width: 120px">
+<span style="height: 26px; font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ c.hColor }}; white-space: nowrap">{{ c.h }}</span>
+<sc-for list="{{ c.items }}" as="i" hint-placeholder-count="8">
+<a href="{{ i.href }}" style="display: block; padding: 5px 0; font-size: 13.5px; line-height: 1.35; color: #0B0B0C; text-decoration: none; white-space: nowrap">{{ i.t }}</a>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ mega.hasTiles }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ mega.tilesH }}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<sc-for list="{{ mega.tiles }}" as="t" hint-placeholder-count="4">
+<a href="{{ L.coll }}" style="display: flex; flex-direction: column; gap: 8px; width: 132px; text-decoration: none; color: #0B0B0C">
+<img loading="lazy" src="{{ t.img }}" alt="" style="width: 132px; height: 132px; object-fit: cover; border-radius: 10px; display: block; background: #ECECEC">
+<span style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em">{{ t.t }}</span>
+</a>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ mega.hasBanners }}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+<sc-for list="{{ mega.banners }}" as="b" hint-placeholder-count="5">
+<a href="{{ L.coll }}" aria-label="{{ b.t }}" style="display: block; border-radius: 10px; overflow: hidden; background: #ECECEC; aspect-ratio: 400 / 130">
+<img loading="lazy" src="{{ b.img }}" alt="{{ b.t }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</a>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ mega.hasMore }}" hint-placeholder-val="{{ false }}">
+<a href="{{ L.coll }}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: #0B0B0C; text-decoration: none; border-bottom: 2px solid {{ a.f }}; padding-bottom: 3px">{{ mega.more }}</a>
+</sc-if>
+</div>
+<a href="{{ L.coll }}" style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 22px; border-radius: 14px; background: #0B0B0C; color: #FFFFFF; text-decoration: none; min-height: 240px; box-sizing: border-box">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}"><span style="width: 8px; height: 8px; background: {{ a.f }}; display: inline-block"></span>Black November</span>
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 34px; font-weight: 900; font-stretch: 115%; text-transform: uppercase; line-height: 0.95">Up to <span style="color: {{ a.f }}">70%</span> off</span>
+<span style="font-size: 14px; line-height: 1.45; color: #A9A9B2">{{ mega.promo }}</span>
+</span>
+<span style="display: inline-flex; align-items: center; justify-content: center; height: 44px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase">Shop the deals</span>
+</a>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<!-- Search overlay: desktop -->
+<sc-if value="{{ searchDesk }}" hint-placeholder-val="{{ false }}">
+<div onClick="{{ closeSearch }}" style="position: fixed; inset: 0; background: rgba(11, 11, 12, 0.5); z-index: -1"></div>
+<div style="position: absolute; top: 116px; left: 0; right: 0; background: #FFFFFF; border-top: 1px solid #E6E6E3; box-shadow: 0 28px 48px rgba(11, 11, 12, 0.18); z-index: 6">
+<div style="max-width: 1320px; margin: 0 auto; padding: 26px {{ gx }}px 32px; box-sizing: border-box; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ suggestTitle }}</span>
+<sc-for list="{{ suggest }}" as="s" hint-placeholder-count="6">
+<a href="{{ L.coll }}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 0; border-bottom: 1px solid #F0F0EE; font-size: 14.5px; color: #0B0B0C; text-decoration: none">{{ s.t }}
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5E5E66" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></a>
+</sc-for>
+</div>
+<a href="{{ L.coll }}" style="display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 12px; background: #0B0B0C; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Black November</span>
+<span style="font-size: 15px; font-weight: 800">Search inside today's deals</span>
+<span style="font-size: 13px; color: #A9A9B2">Flash deals end at midnight</span>
+</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ resultsTitle }}</span>
+<a href="{{ L.coll }}" style="font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #0B0B0C; text-decoration: none; border-bottom: 2px solid {{ a.f }}; padding-bottom: 2px">See all results</a>
+</div>
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 24px; border-radius: 12px; background: #F3F2EF; font-size: 15px; line-height: 1.5">No products match “{{ q }}”. Try another word, or browse the Sale collection.</p>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="8">
+<a href="{{ L.pdp }}" style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; text-decoration: none; color: #0B0B0C; padding: 8px; border-radius: 10px; border: 1px solid #F0F0EE">
+<img loading="lazy" src="{{ r.img }}" alt="" style="width: 64px; height: 96px; object-fit: cover; border-radius: 8px; display: block; background: #ECECEC">
+<span style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5E5E66">{{ r.vendor }}</span>
+<span style="font-size: 13.5px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ r.title }}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 0 6px; font-size: 13.5px"><span style="font-weight: 800; white-space: nowrap; color: {{ r.priceColor }}">{{ r.priceStr }}</span><s style="color: #5E5E66; white-space: nowrap">{{ r.compareStr }}</s></span>
+</span>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- Search overlay: mobile (full screen) -->
+<sc-if value="{{ searchMob }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Search" style="position: fixed; inset: 0; z-index: 90; background: #FFFFFF; display: flex; flex-direction: column; overflow-y: auto">
+<div style="display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #E6E6E3; position: sticky; top: 0; background: #FFFFFF">
+<label for="sz-search-m" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Search products</label>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; align-items: center; height: 46px; border: 1.5px solid #0B0B0C; border-radius: 8px; padding: 0 10px; box-sizing: border-box">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E5E66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+<input id="sz-search-m" type="search" value="{{ q }}" onChange="{{ onQ }}" placeholder="Search Shopzetu" style="flex: 1 1 auto; min-width: 0; height: 100%; border: none; outline: none; background: transparent; font-family: inherit; font-size: 16px; color: #0B0B0C; padding: 0 8px">
+</div>
+<button type="button" onClick="{{ closeSearch }}" style="font-family: inherit; height: 44px; padding: 0 8px; border: none; background: transparent; color: #0B0B0C; font-size: 14px; font-weight: 800; cursor: pointer">Cancel</button>
+</div>
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ suggestTitle }}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ suggest }}" as="s" hint-placeholder-count="6">
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 38px; padding: 0 14px; border-radius: 999px; background: #F3F2EF; color: #0B0B0C; font-size: 14px; text-decoration: none">{{ s.t }}</a>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ resultsTitle }}</span>
+<sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 18px; border-radius: 12px; background: #F3F2EF; font-size: 15px; line-height: 1.5">No products match “{{ q }}”. Try another word, or browse the Sale collection.</p>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px">
+<sc-for list="{{ results }}" as="r" hint-placeholder-count="6">
+<a href="{{ L.pdp }}" style="display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: #0B0B0C; min-width: 0">
+<img loading="lazy" src="{{ r.img }}" alt="" style="width: 100%; aspect-ratio: 5 / 8; object-fit: cover; border-radius: 10px; display: block; background: #ECECEC">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #5E5E66">{{ r.vendor }}</span>
+<span style="font-size: 13.5px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ r.title }}</span>
+<span style="display: flex; flex-wrap: wrap; gap: 0 6px; font-size: 14px"><span style="font-weight: 800; white-space: nowrap; color: {{ r.priceColor }}">{{ r.priceStr }}</span><s style="color: #5E5E66; white-space: nowrap">{{ r.compareStr }}</s></span>
+</a>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<!-- Mobile menu drawer -->
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; inset: 0; z-index: 95">
+<div onClick="{{ closeMenu }}" style="position: absolute; inset: 0; background: rgba(11, 11, 12, 0.55)"></div>
+<div role="dialog" aria-modal="true" aria-label="Menu" style="position: absolute; top: 0; left: 0; bottom: 0; width: {{ drawerW }}; background: #FFFFFF; display: flex; flex-direction: column; overflow-y: auto; box-shadow: 12px 0 40px rgba(11, 11, 12, 0.25)">
+<div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 10px 16px; border-bottom: 1px solid #E6E6E3">
+<img loading="lazy" src="{{ img.logo }}" alt="Shopzetu" style="width: 40px; height: 40px; border-radius: 4px; display: block">
+<button type="button" aria-label="Close menu" onClick="{{ closeMenu }}" style="font-family: inherit; width: 44px; height: 44px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<a href="{{ L.coll }}" style="margin: 14px 16px 6px; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 12px; background: #0B0B0C; color: #FFFFFF; text-decoration: none">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Black November</span>
+<span style="font-size: 22px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1">Up to 70% off</span>
+<span style="font-size: 13px; color: #A9A9B2">This week: dresses up to 50% off</span>
+</a>
+<nav aria-label="Main menu" style="display: flex; flex-direction: column; padding: 6px 0">
+<sc-for list="{{ mnav }}" as="m" hint-placeholder-count="14">
+<div style="border-bottom: 1px solid #F0F0EE">
+<button type="button" aria-expanded="{{ m.expanded }}" onClick="{{ m.toggle }}" style="font-family: inherit; width: 100%; height: 54px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border: none; background: transparent; color: {{ m.fg }}; font-size: 14.5px; font-weight: {{ m.weight }}; letter-spacing: 0.04em; text-transform: uppercase; text-align: left; cursor: pointer">
+<span>{{ m.k }}</span>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{ m.rot }}deg)"><path d="M6 9l6 6 6-6"></path></svg>
+</button>
+<sc-if value="{{ m.open }}" hint-placeholder-val="{{ false }}">
+<div style="background: #F7F7F5; padding: 6px 16px 14px">
+<sc-for list="{{ m.rows }}" as="r" hint-placeholder-count="8">
+<sc-if value="{{ r.isHead }}" hint-placeholder-val="{{ false }}">
+<span style="display: block; padding: 14px 0 4px; font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">{{ r.t }}</span>
+</sc-if>
+<sc-if value="{{ r.isLink }}" hint-placeholder-val="{{ true }}">
+<a href="{{ L.coll }}" style="display: flex; align-items: center; min-height: 44px; font-size: 15px; color: #0B0B0C; text-decoration: none">{{ r.t }}</a>
+</sc-if>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</nav>
+<div style="margin-top: auto; padding: 16px; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #E6E6E3">
+<a href="https://wa.me/254748419357" style="display: flex; align-items: center; gap: 10px; min-height: 44px; color: #0B0B0C; text-decoration: none; font-size: 14px; font-weight: 700">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg>
+Chat with us on WhatsApp</a>
+<a href="tel:0703420780" style="display: flex; align-items: center; gap: 10px; min-height: 44px; color: #0B0B0C; text-decoration: none; font-size: 14px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+0703 420 780</a>
+<a href="mailto:support@shopzetu.com" style="display: flex; align-items: center; gap: 10px; min-height: 44px; color: #0B0B0C; text-decoration: none; font-size: 14px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+support@shopzetu.com</a>
+</div>
+</div>
+</div>
+</sc-if>
+
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"text","default":""},"count":{"editor":null},"onCart":{"editor":null},"mob":{"editor":null},"acc":{"editor":null},"embedded":{"editor":null},"demo":{"editor":"enum","options":["mega","search","menu","none"],"default":"mega"},"$preview":{"width":1440,"height":600}}'>
+const IMG = {
+  logo: 'assets/logo.webp',
+  m_beauty: 'assets/m_beauty.webp',
+  m_clothing: 'assets/m_clothing.webp',
+  m_footwear: 'assets/m_footwear.webp',
+  m_outerwear: 'assets/m_outerwear.webp',
+  m_vivo: 'assets/m_vivo.webp',
+  m_lizola: 'assets/m_lizola.webp',
+  m_yuva: 'assets/m_yuva.webp',
+  m_puma: 'assets/m_puma.webp',
+  m_safari: 'assets/m_safari.webp',
+  m_makeup: 'assets/m_makeup.webp',
+  m_hair: 'assets/m_hair.webp',
+  m_fragrance: 'assets/m_fragrance.webp',
+  m_nails: 'assets/m_nails.webp',
+  p_zuri_green: 'assets/p_zuri_green.webp',
+  p_godet: 'assets/p_godet.webp',
+  p_zola: 'assets/p_zola.webp',
+  p_sierra: 'assets/p_sierra.webp',
+  p_tiered: 'assets/p_tiered.webp',
+  p_mariste: 'assets/p_mariste.webp',
+  p_reagan: 'assets/p_reagan.webp',
+  p_liora: 'assets/p_liora.webp',
+  p_poppy: 'assets/p_poppy.webp',
+  p_wanjiku: 'assets/p_wanjiku.webp',
+  p_nakshi: 'assets/p_nakshi.webp',
+  p_timyt: 'assets/p_timyt.webp',
+  p_julz: 'assets/p_julz.webp',
+  p_puma: 'assets/p_puma.webp',
+  p_alani: 'assets/p_alani.webp',
+  c_dale: 'assets/c_dale.webp',
+  c_avah: 'assets/c_avah.webp',
+  c_denim: 'assets/c_denim.webp'
+};
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const fmt = (n) => 'KES ' + Number(n).toLocaleString('en-US');
+
+// The 14 menu items and their dropdowns, exactly as on shopzetu.com (14 Oct 2026).
+const NAV = [
+  { k: 'BRANDS', groups: [
+    { h: 'Best selling brands', items: ['Vivo', 'Safari By Vivo', 'Lizola', 'Stylish Sisters', 'TimyT Urban Wear', 'Elsie Glamour', 'Plain Chic', 'Kakiba Collections', 'Phyls Collection', 'African Yuva', 'Home of Calor', 'PrettyGline', 'Puma', 'The Fashion Frenzy', 'Afriwia', 'Jolly Fancy Wears', 'Hessed', 'Hats And More', 'Alpha Threads Fashions'] },
+    { h: 'New brands', items: ['Agamu RTW', 'Alpha Threads Fashions', 'Anzo', 'Blesteire Beauty', 'CSF House Of Fashion', 'Detail Africa', 'Etam', 'Elegance Fashion', 'Fashion Palette', 'Hawi Sartorial', 'Inroses Glitz', 'Koro Gaia', 'Leather Aura', 'Puma', 'Qui Kihuga', 'Sama House', 'Tamalaki Africa', 'Wearplus Botique'] }
+  ], more: 'Click to see all brands' },
+  { k: 'NEW IN', groups: [
+    { h: 'New In', items: ['View all', 'Accessories', 'Sweater Weather'] },
+    { h: 'Trendy', items: ['Hats', 'Sunglasses', 'Wallets & Purses', 'Bags', 'Scarves & Snoods', 'Belts'] }
+  ], tilesH: 'Top Selection', tiles: [{ t: 'Beauty', img: IMG.m_beauty }, { t: 'Clothing', img: IMG.m_clothing }, { t: 'Footwear', img: IMG.m_footwear }, { t: 'Outerwear', img: IMG.m_outerwear }] },
+  { k: 'WOMEN', groups: [
+    { h: 'Dresses', items: ['Bodycons', 'Corset Dresses', 'Knee Length Dresses', 'Midi & Capri Dresses', 'Maxi Dresses', 'Shirt Dresses', 'Short & Mini Dresses'] },
+    { h: 'Outerwear', items: ['Hoodies & Sweatshirts', 'Jackets & Coats', 'Kimono Sets', 'Sweaters & Ponchos', 'Waterfalls & Kimonos'] },
+    { h: 'Tops', items: ['Beachwear', 'Bodysuits', 'Corset Tops', 'Crop Shirts', 'Fitted Tops', 'Midriff & Crop Tops', 'Loose Tops', 'Shirt Tops', 'T-shirts & Tank Tops'] },
+    { h: 'Bottoms', items: ['Culottes & Capri Pants', 'Denim Bottoms', 'Full Length Pants', 'Jumpsuits & Playsuits', 'Leggings', 'Loungewear', 'Midi & Capri Pants', 'Pant Sets', 'Short Sets', 'Shorts & Skorts'] },
+    { h: 'Skirts', items: ['Denim Skirts', 'Knee Length Skirts', 'Midi & Capri Skirts', 'Mini Skirts', 'Maxi Skirts', 'Skirt Suits'] },
+    { h: 'Innerwear', items: ['Bra & Panty Sets', 'Bralettes', 'Bras', 'Lingerie', 'Panties', 'Shapewear'] }
+  ] },
+  { k: 'MEN', groups: [{ h: '', items: ["Men's Shirts & T-shirts", "Men's Bottoms", "Men's Suits", "Men's Outerwear", "Men's Hair & Skincare", "Men's Accessories", "Men's Activewear"] }] },
+  { k: 'KIDS', groups: [{ h: '', items: ["Boy's Bottoms", 'Breast Pads', "Girl's Tops", "Girl's Bottoms", 'Kids Dresses', 'Kids Unisex Tops', 'Kids Outerwear', 'Kids Footwear', "Kid's Accessories", 'Toddler Neck Pillows', 'Toddler Pillows'] }] },
+  { k: 'ACTIVEWEAR', groups: [{ h: '', items: ['Activewear Sets', 'Activewear Shorts', 'Activewear Tops', 'Activewear Leggings', 'Activewear Sports Bras', 'Activewear Jackets', 'Activewear Playsuits'] }] },
+  { k: 'FOOTWEAR', groups: [
+    { h: "Women's footwear", items: ['Boots', 'Flats', 'Heels', 'Sandals & Slippers', 'Socks & Stockings', "Women's Sneakers"] },
+    { h: "Men's footwear", items: ["Men's Loafers", "Men's Boots", "Men's Sneakers", "Men's Slip On", "Men's Sandals & Slippers", "Men's Oxford Shoes"] }
+  ] },
+  { k: 'SHOP BY BODY FIT', groups: [{ h: '', items: ['Curvy & Plus size', 'Petite', 'Maternity Wear', 'Unisex'] }] },
+  { k: 'SALE', sale: true, groups: [{ h: '', items: ['Vivo On Sale', 'Dresses on Sale', 'Bottoms on Sale', 'Tops On Sale', 'Outerwear on Sale', 'Accessories On Sale', 'Jewelry On Sale', "Women's Footwear On Sale"] }] },
+  { k: 'BUDGET FRIENDLY', groups: [{ h: '', items: ['Under 1600', 'Under 2k', 'Under 3k', 'Under 4k'] }] },
+  { k: 'ACCESSORIES', groups: [{ h: '', items: ['Anklets', 'Aprons', 'Bags', 'Belly Chains', 'Belts', "Blankets & Kikoi's", 'Bonnets', 'Breastfeeding Pillows', 'Fitness Accessories', 'Fur Cuffs', 'Gloves', 'Hats', 'Headgear', 'Jewellery', 'Neckties', 'Pillowcase', 'Scarves & Snoods', 'Sleeping Eye Masks', 'Sunglasses', 'Sunglasses Organizers', 'Table Mats', 'Waist Beads', 'Wallets & Purses'] }] },
+  { k: 'BEAUTY', groups: [
+    { h: 'Skincare', items: ['Moisturisers & Creams', 'Cleansers & Soaps', 'Toners & Treatments', 'Masks & Scrubs', 'Sunscreens', 'Serums', 'Deos & Lotions'] },
+    { h: 'Top Picks', items: ['Makeup', 'Haircare', 'Fragrances', 'Nail Treatment', 'Lip Balms', 'Lip Scrubs', 'Tools & Accessories'] }
+  ], tilesH: 'Top Picks', tiles: [{ t: 'Makeup', img: IMG.m_makeup }, { t: 'Haircare', img: IMG.m_hair }, { t: 'Fragrances', img: IMG.m_fragrance }, { t: 'Nail Treatment', img: IMG.m_nails }] },
+  { k: 'MADE IN AFRICA', groups: [{ h: '', items: ['Made In Ethiopia', 'Made In Kenya', 'Made In Nigeria', 'Made In South Africa'] }] },
+  { k: 'DISCOVER', bold: true, groups: [], banners: [{ t: 'Vivo', img: IMG.m_vivo }, { t: 'Lizola', img: IMG.m_lizola }, { t: 'African Yuva', img: IMG.m_yuva }, { t: 'Puma', img: IMG.m_puma }, { t: 'Safari by Vivo', img: IMG.m_safari }] }
+];
+
+const SEARCH = [
+  { title: 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print', vendor: 'Vivo', type: 'maxi dresses', img: IMG.p_zuri_green, price: 4830, compare: 6900 },
+  { title: 'Vivo Godet Midi Dress in Crepe - Dark Purple', vendor: 'Vivo', type: 'midi & capri dresses', img: IMG.p_godet, price: 4140, compare: 6900 },
+  { title: 'Vivo Zola 3/4 Sleeve Maxi Dress in Crepe - Black', vendor: 'Vivo', type: 'maxi dresses', img: IMG.p_zola, price: 3600, compare: 7200 },
+  { title: 'Lizola Dale Bodycon Dress - Green', vendor: 'Lizola', type: 'bodycons dresses', img: IMG.c_dale, price: 2999, compare: 8200 },
+  { title: 'Mariste Jay Shift Dress - Emerald', vendor: 'Mariste', type: 'knee length dresses', img: IMG.p_mariste, price: 4300, compare: 0 },
+  { title: 'Vivo Sierra Maxi Dress in Chiffon - White / Orange Essia Print', vendor: 'Vivo', type: 'maxi dresses', img: IMG.p_sierra, price: 4830, compare: 6900 },
+  { title: 'Lizola Reagan Bodycon Dress - Navy Blue / Pink', vendor: 'Lizola', type: 'bodycons dresses', img: IMG.p_reagan, price: 5500, compare: 0 },
+  { title: 'The Fashion Frenzy Liora Garden Midi Dress - Cream Print', vendor: 'The Fashion Frenzy', type: 'midi & capri dresses', img: IMG.p_liora, price: 5800, compare: 0 },
+  { title: 'Vivo Tiered Knee Length Dress in Chiffon - Dark Olive Green', vendor: 'Vivo', type: 'knee length dresses', img: IMG.p_tiered, price: 3450, compare: 6900 },
+  { title: 'Kakiba Collections Wanjiku Maxi Dress - Orange', vendor: 'Kakiba Collections', type: 'maxi dresses', img: IMG.p_wanjiku, price: 8500, compare: 0 },
+  { title: 'Poppy Mini Skater Dress - Yellow', vendor: 'Plain Chic', type: 'short & mini dresses', img: IMG.p_poppy, price: 5800, compare: 0 },
+  { title: 'Lizola Avah Bodycon Dress - Maroon', vendor: 'Lizola', type: 'bodycons dresses', img: IMG.c_avah, price: 2999, compare: 8200 },
+  { title: 'African Yuva Nakshi Gown - Black', vendor: 'African Yuva', type: 'maxi dresses gown', img: IMG.p_nakshi, price: 14500, compare: 0 },
+  { title: 'Vivo Alani High Low Dress - Black Stripes Print', vendor: 'Vivo', type: 'knee length dresses', img: IMG.p_alani, price: 2250, compare: 5500 },
+  { title: 'Timyt Urban Wear Cozy Puff Jacket - Biege', vendor: 'TimyT Urban Wear', type: 'jackets & coats outerwear', img: IMG.p_timyt, price: 4300, compare: 0 },
+  { title: 'Julz Rainhaven Coral Boot - Coral', vendor: 'Julz', type: 'boots footwear', img: IMG.p_julz, price: 8320, compare: 0 },
+  { title: 'Rebound Retro Puma White-Puma Black', vendor: 'Puma', type: "men's footwear sneakers", img: IMG.p_puma, price: 17990, compare: 0 },
+  { title: 'Denim Haven High Rise Skinny Ripped Jeans - Deep Blue', vendor: 'Denim Haven', type: 'denim bottoms jeans', img: IMG.c_denim, price: 700, compare: 3500 }
+];
+const ALL_LINKS = [];
+NAV.forEach((n) => n.groups.forEach((g) => g.items.forEach((t) => { if (ALL_LINKS.indexOf(t) < 0) ALL_LINKS.push(t); })));
+const BROWSE = ['Maxi Dresses', 'Bodycons', 'Pant Sets', 'Jackets & Coats', 'Boots', 'Vivo On Sale', 'Under 2k', 'Made In Kenya'];
+
+function chunk(list, per) { const out = []; for (let i = 0; i < list.length; i += per) out.push(list.slice(i, i + per)); return out; }
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    const demo = this.props.demo || (this.props.embedded ? 'none' : 'mega');
+    this.state = {
+      w: iw, promo: 0,
+      open: demo === 'mega' ? 'WOMEN' : null,
+      mOpen: demo === 'menu', mExp: demo === 'menu' ? 'WOMEN' : null,
+      sOpen: demo === 'search', q: demo === 'search' ? 'dress' : ''
+    };
+    this.ro = null;
+    this.rootEl = null;
+    this.timer = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+  }
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState((s) => ({ promo: (s.promo + 1) % 3 })), 4500);
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+    if (this.timer) clearInterval(this.timer);
+  }
+  renderVals() {
+    const w = this.state.w;
+    const mobile = w < 760;
+    const desk = w >= 1100;
+    const mob = this.props.mob ? '1' : '';
+    const a = ACCENTS[this.props.acc] || ACCENTS.lime;
+    const L = mob
+      ? { home: 'MobileHome.dc.html', coll: 'MobileCollection.dc.html', pdp: 'MobileProduct.dc.html' }
+      : { home: './', coll: 'Collection.dc.html', pdp: 'Product.dc.html' };
+    const active = this.props.active || '';
+    const count = (this.props.count === 0 || this.props.count) ? this.props.count : 3;
+
+    const promos = desk
+      ? [
+        { s: 'Return, refund & exchange policy', t: 'Shopzetu Return Process', strongColor: '#FFFFFF' },
+        { s: 'Give the gift of choice', t: 'Delight with our exclusive gift vouchers', strongColor: '#FFFFFF' },
+        { s: 'Return, refund & exchange policy', t: 'Shopzetu Return Process', strongColor: '#FFFFFF' }
+      ]
+      : [
+        { s: 'Black November', t: 'Up to 70% off', strongColor: a.f },
+        { s: 'Returns & exchanges', t: 'Shopzetu Return Process', strongColor: '#FFFFFF' },
+        { s: 'Gift of choice', t: 'Exclusive gift vouchers', strongColor: '#FFFFFF' }
+      ];
+
+    const openKey = desk ? this.state.open : null;
+    const nav = NAV.map((n) => {
+      const isOpen = openKey === n.k;
+      const isActive = active === n.k;
+      const sale = !!n.sale;
+      return {
+        k: n.k,
+        expanded: isOpen ? 'true' : 'false',
+        h: sale ? 30 : 50, padX: sale ? 10 : 2, radius: sale ? 6 : 0,
+        bg: sale ? a.f : 'transparent', fg: '#0B0B0C',
+        weight: (n.bold || sale || isActive) ? 900 : 650,
+        line: (!sale && (isOpen || isActive)) ? a.t : 'transparent',
+        enter: () => { if (this.state.open !== n.k) this.setState({ open: n.k }); }
+      };
+    });
+    let mega = { hasCols: false, cols: [], hasTiles: false, tiles: [], tilesH: '', hasBanners: false, banners: [], hasMore: false, more: '', promo: '' };
+    const cur = NAV.find((n) => n.k === openKey);
+    if (cur) {
+      const cols = [];
+      cur.groups.forEach((g) => {
+        const n = Math.max(1, Math.ceil(g.items.length / 10));
+        const per = Math.ceil(g.items.length / n);
+        chunk(g.items, per).forEach((part, i) => cols.push({
+          h: i === 0 ? g.h : '', hColor: a.t,
+          items: part.map((t) => ({ t, href: L.coll }))
+        }));
+      });
+      mega = {
+        hasCols: cols.length > 0, cols,
+        hasTiles: !!cur.tiles, tiles: cur.tiles || [], tilesH: cur.tilesH || '',
+        hasBanners: !!cur.banners, banners: cur.banners || [],
+        hasMore: !!cur.more, more: cur.more || '',
+        promo: cur.sale ? 'Flash deals end at midnight. New drop every week.' : 'This week: dresses up to 50% off. New drop every Monday.'
+      };
+    }
+
+    const mnav = NAV.map((n) => {
+      const open = this.state.mExp === n.k;
+      const rows = [];
+      n.groups.forEach((g) => {
+        if (g.h) rows.push({ t: g.h, isHead: true, isLink: false });
+        g.items.forEach((t) => rows.push({ t, isHead: false, isLink: true }));
+      });
+      (n.tiles || []).forEach((t) => rows.push({ t: t.t, isHead: false, isLink: true }));
+      (n.banners || []).forEach((b) => rows.push({ t: b.t, isHead: false, isLink: true }));
+      if (n.more) rows.push({ t: n.more, isHead: false, isLink: true });
+      return {
+        k: n.k, open, rows, expanded: open ? 'true' : 'false', rot: open ? 180 : 0,
+        fg: n.sale ? a.t : '#0B0B0C', weight: (n.sale || n.bold) ? 900 : 750,
+        toggle: () => this.setState({ mExp: open ? null : n.k })
+      };
+    });
+
+    const q = this.state.q || '';
+    const ql = q.trim().toLowerCase();
+    const results = (ql ? SEARCH.filter((p) => (p.title + ' ' + p.vendor + ' ' + p.type).toLowerCase().indexOf(ql) >= 0) : SEARCH.slice(0, 8))
+      .slice(0, mobile ? 6 : 8)
+      .map((p) => {
+        const off = p.compare > p.price;
+        return Object.assign({}, p, { priceStr: fmt(p.price), compareStr: off ? fmt(p.compare) : '', priceColor: off ? a.t : '#0B0B0C' });
+      });
+    const sugg = ql ? ALL_LINKS.filter((t) => t.toLowerCase().indexOf(ql) >= 0).slice(0, 8) : BROWSE;
+
+    return {
+      rootRef: this.rootRef, a, L, img: IMG, count, cartLabel: 'Cart, ' + count + ' items',
+      mobile, desk, notMobile: !mobile,
+      pos: desk ? 'sticky' : 'relative', stickTop: desk ? -36 : 0,
+      gx: mobile ? 16 : (desk ? 32 : 24),
+      promoJustify: desk ? 'space-between' : 'center',
+      promo: promos[this.state.promo % promos.length],
+      navJustify: desk ? 'center' : 'flex-start', navGap: w >= 1360 ? 22 : (desk ? 15 : 18), navOverflow: desk ? 'visible' : 'auto',
+      nav, megaOpen: !!cur, mega,
+      closeMega: () => { if (this.state.open) this.setState({ open: null }); },
+      q, hasQ: q.length > 0, searchBorder: this.state.sOpen ? '#0B0B0C' : '#E6E6E3',
+      onQ: (e) => this.setState({ q: e && e.target ? e.target.value : '', sOpen: true }),
+      clearQ: () => this.setState({ q: '' }),
+      openSearch: () => this.setState({ sOpen: true, open: null }),
+      closeSearch: () => this.setState({ sOpen: false }),
+      searchDesk: this.state.sOpen && !mobile, searchMob: this.state.sOpen && mobile,
+      suggestTitle: ql ? 'Suggestions' : 'Shop by category', suggest: sugg.map((t) => ({ t })),
+      resultsTitle: ql ? 'Products for “' + q + '”' : 'Black November picks',
+      results, noResults: ql.length > 0 && results.length === 0,
+      menuOpen: this.state.mOpen && mobile, drawerW: 'min(380px, 88%)', mnav,
+      openMenu: () => this.setState({ mOpen: true }),
+      closeMenu: () => this.setState({ mOpen: false }),
+      cartClick: () => { if (this.props.onCart) this.props.onCart(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

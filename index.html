@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Black November</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width: 100%; background: #FFFFFF; color: #0B0B0C; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip">
+
+<dc-import name="Header" active="" count="{{ cartCount }}" on-cart="{{ openCart }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="100%,164px"></dc-import>
+
+<main>
+
+<!-- ============ BLACK NOVEMBER ZONE (hero, % tiers, flash deals) ============ -->
+<section aria-label="Black November" style="background: #0B0B0C; color: #FFFFFF; padding-bottom: {{ secY }}px">
+
+<div style="max-width: 1320px; margin: 0 auto; padding: {{ heroPadY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: {{ heroCols }}; gap: {{ heroGap }}px; align-items: center">
+
+<div style="display: flex; flex-direction: column; gap: {{ heroStack }}px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: {{ a.f }}">
+<span style="width: 10px; height: 10px; background: {{ a.f }}; display: inline-block"></span>
+<span>Black November · 1–30 Nov 2026</span>
+</div>
+<h1 style="margin: 0; font-size: {{ h1 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 0.94; letter-spacing: -0.01em">Up to <span style="color: {{ a.f }}">70% off.</span><br>A new drop every week.</h1>
+<p style="margin: 0; max-width: 540px; font-size: {{ lead }}px; line-height: 1.55; color: #A9A9B2">Deals on Vivo, Safari by Vivo, Lizola and more of our partner brands, all month long. This week: dresses up to 50% off.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 52px; padding: 0 26px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; flex: {{ ctaFlex }}">Shop the deals
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a href="#drop" style="display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 24px; border-radius: 6px; border: 1.5px solid rgba(255,255,255,0.42); color: #FFFFFF; font-size: 13px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; flex: {{ ctaFlex }}">This week's drop</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding-top: 4px">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A9B2">Drop 01 ends in</span>
+<dc-import name="Countdown" seconds="{{ dropSecs }}" tone="dark" kind="boxes" size="{{ cdSize }}" acc="{{ accKey }}" hint-size="260px,72px"></dc-import>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: {{ picGap }}px; align-items: start; padding-bottom: 36px">
+<sc-for list="{{ heroPics }}" as="h" hint-placeholder-count="3">
+<a href="{{ L.pdp }}" aria-label="{{ h.title }}" style="position: relative; display: block; margin-top: {{ h.offset }}px; border-radius: 14px; overflow: hidden; background: #1F1F22; aspect-ratio: 5 / 8; text-decoration: none; color: #FFFFFF">
+<img loading="lazy" src="{{ h.img }}" alt="{{ h.title }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block">
+<span style="position: absolute; top: 10px; left: 10px; background: {{ a.f }}; color: #0B0B0C; font-size: {{ tagSize }}px; font-weight: 900; padding: 5px 8px; border-radius: 6px">{{ h.tag }}</span>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<span style="position: absolute; left: 10px; right: 10px; bottom: 10px; background: rgba(11,11,12,0.88); border-radius: 8px; padding: 9px 10px; display: flex; flex-direction: column; gap: 3px; font-size: 12px; line-height: 1.3">
+<span style="font-weight: 700">{{ h.name }}</span>
+<span><span style="color: {{ a.f }}; font-weight: 800">{{ h.now }}</span> <s style="color: #A9A9B2">{{ h.was }}</s></span>
+</span>
+</sc-if>
+</a>
+</sc-for>
+</div>
+
+</div>
+</div>
+
+<!-- % off tiers -->
+<div style="max-width: 1320px; margin: 0 auto; padding: {{ tierPadTop }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: {{ tierCols }}; gap: {{ gap }}px">
+<sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
+<a href="{{ L.coll }}" style="display: flex; flex-direction: column; justify-content: space-between; gap: 14px; min-height: {{ tierH }}px; padding: {{ tierPad }}px; border-radius: 14px; background: {{ t.bg }}; border: 1px solid {{ t.border }}; color: {{ t.fg }}; text-decoration: none; box-sizing: border-box">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ t.kicker }}">{{ t.kick }}</span>
+<span style="display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap">
+<span style="font-size: {{ tierNum }}px; font-weight: 900; font-stretch: 115%; line-height: 0.9; color: {{ t.numColor }}">{{ t.num }}</span>
+<span style="font-size: {{ tierWord }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase">{{ t.word }}</span>
+</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: {{ t.link }}">Shop now
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</sc-for>
+</div>
+</div>
+
+<!-- Daily flash deals -->
+<div style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 8px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Today only</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: #FFFFFF">Flash deals</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #A9A9B2">New deals at midnight, every day of Black November. While stocks last.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A9B2">Ends in</span>
+<dc-import name="Countdown" seconds="{{ flashSecs }}" tone="dark" kind="boxes" size="sm" acc="{{ accKey }}" hint-size="150px,58px"></dc-import>
+</div>
+<div role="tablist" aria-label="Flash deal days" style="display: inline-flex; padding: 4px; border-radius: 999px; background: #161618; border: 1px solid #2A2A2E">
+<button type="button" role="tab" aria-selected="{{ todaySel }}" onClick="{{ showToday }}" style="font-family: inherit; height: 38px; padding: 0 16px; border-radius: 999px; border: none; background: {{ todayBg }}; color: {{ todayFg }}; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Today</button>
+<button type="button" role="tab" aria-selected="{{ tomorrowSel }}" onClick="{{ showTomorrow }}" style="font-family: inherit; display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 16px; border-radius: 999px; border: none; background: {{ tomorrowBg }}; color: {{ tomorrowFg }}; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Tomorrow
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></button>
+</div>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; gap: 8px">
+<button type="button" aria-label="Scroll flash deals left" onClick="{{ prevFlash }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #2A2A2E; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Scroll flash deals right" onClick="{{ nextFlash }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #2A2A2E; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
+</sc-if>
+</div>
+</div>
+
+<sc-if value="{{ flashToday }}" hint-placeholder-val="{{ true }}">
+<div ref="{{ refFlash }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ flash }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" tone="dark" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ flashTomorrow }}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ lockedSlots }}" as="s" hint-placeholder-count="6">
+<div style="aspect-ratio: 5 / 8; border-radius: 12px; border: 1px dashed #3A3A40; background: #161618; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 16px; box-sizing: border-box; text-align: center; color: #A9A9B2">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+<span style="font-size: 14px; font-weight: 800; color: #FFFFFF">Deal {{ s.n }}</span>
+<span style="font-size: 12px; line-height: 1.4">Reveals at midnight</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</section>
+
+<!-- ============ WEEKLY DROP (promo card + drop products + side banners + calendar) ============ -->
+<section id="drop" aria-label="This week's drop" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: {{ dropCols }}; gap: {{ dropGap }}px; align-items: stretch">
+
+<div style="position: relative; border-radius: 16px; overflow: hidden; min-height: {{ promoH }}px; background: #0B0B0C; color: #FFFFFF">
+<img loading="lazy" src="{{ img.k_night }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+<div style="position: absolute; inset: 0; background: rgba(11,11,12,0.66)"></div>
+<div style="position: relative; height: 100%; min-height: {{ promoH }}px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 28px 20px; box-sizing: border-box; text-align: center">
+<div style="width: {{ circle }}px; height: {{ circle }}px; border-radius: 50%; background: #FFFFFF; color: #0B0B0C; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+<span style="font-size: 12px; font-weight: 900; letter-spacing: 0.22em; text-transform: uppercase; color: {{ a.t }}">Drop 01</span>
+<span style="font-size: {{ circleWord }}px; font-weight: 900; font-stretch: 115%; text-transform: uppercase; line-height: 1">Dresses</span>
+<span style="font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em">Up to 50% off</span>
+</div>
+<dc-import name="Countdown" seconds="{{ dropSecs }}" tone="dark" kind="boxes" size="sm" acc="{{ accKey }}" hint-size="200px,58px"></dc-import>
+<span style="font-size: 12px; color: #D4D4D8">Ends Sunday 8 November, 23:59</span>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none">Shop the drop</a>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px; min-width: 0">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">This week's drop</span>
+<h2 style="margin: 0; font-size: {{ h2s }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Drop 01: Dresses</h2>
+</div>
+<div style="display: flex; gap: 8px; flex-shrink: 0">
+<sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Scroll drop left" onClick="{{ prevDrop }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Scroll drop right" onClick="{{ nextDrop }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</sc-if>
+</div>
+</div>
+<div ref="{{ refDrop }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col3 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ drop }}" as="x" hint-placeholder-count="3">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+<a href="{{ L.coll }}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #0B0B0C; text-decoration: none; border-bottom: 2px solid {{ a.f }}; padding-bottom: 3px">See all 6 drop styles</a>
+</div>
+
+<div style="display: grid; grid-template-rows: {{ sideRows }}; grid-template-columns: {{ sideCols }}; gap: {{ dropGap }}px; min-width: 0">
+<a href="#calendar" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 22px; border-radius: 16px; background: #0B0B0C; color: #FFFFFF; text-decoration: none; overflow: hidden; min-height: 200px; box-sizing: border-box">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 10px">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Coming Mon 9 Nov</span>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+</span>
+<span style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 30px; font-weight: 900; font-stretch: 115%; text-transform: uppercase; line-height: 0.95">Drop 02</span>
+<span style="font-size: 17px; font-weight: 700">Outerwear &amp; knits</span>
+<span style="font-size: 13px; color: #A9A9B2">Up to 40% off. Unlocks Monday at 00:00.</span>
+</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFFFF">See the drop calendar
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></span>
+</a>
+<a href="{{ L.coll }}" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; padding: 22px; border-radius: 16px; background: #161618; color: #FFFFFF; text-decoration: none; overflow: hidden; min-height: 200px; box-sizing: border-box">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Give the gift of choice</span>
+<span style="display: flex; align-items: center; gap: 14px">
+<span style="position: relative; width: 96px; height: 62px; flex-shrink: 0; border-radius: 8px; background: #0B0B0C; border: 1px solid #3A3A40; display: block; overflow: hidden">
+<img loading="lazy" src="{{ img.logo_inv }}" alt="" style="position: absolute; top: 8px; left: 8px; width: 22px; height: 22px; border-radius: 3px; display: block">
+<span style="position: absolute; left: 0; right: 0; bottom: 14px; height: 4px; background: {{ a.f }}; display: block"></span>
+<span style="position: absolute; right: 8px; bottom: 22px; font-size: 7px; font-weight: 900; letter-spacing: 0.14em; color: #FFFFFF">GIFT CARD</span>
+</span>
+<span style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<span style="font-size: 17px; font-weight: 800">Shopzetu gift cards</span>
+<span style="font-size: 13px; line-height: 1.4; color: #A9A9B2">Delight with our exclusive gift vouchers.</span>
+</span>
+</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFFFF">Shop gift cards
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</div>
+
+</div>
+
+<!-- Drop calendar -->
+<div id="calendar" style="margin-top: {{ calTop }}px; border: 1px solid #E6E6E3; border-radius: 16px; padding: {{ calPad }}px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 18px">
+<h3 style="margin: 0; font-size: 18px; font-weight: 900; font-stretch: 112%; text-transform: uppercase">Black November drop calendar</h3>
+<span style="font-size: 13px; color: #5E5E66">A new drop unlocks every Monday at 00:00</span>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: {{ calCols }}; gap: {{ calGap }}px">
+<sc-for list="{{ calendar }}" as="c" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 3px solid {{ c.bar }}">
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span style="font-size: 12px; font-weight: 900; letter-spacing: 0.18em; text-transform: uppercase; color: {{ c.labelColor }}">{{ c.label }}</span>
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; background: {{ c.chipBg }}; color: {{ c.chipFg }}">{{ c.status }}</span>
+</span>
+<span style="font-size: 13px; color: #5E5E66">{{ c.dates }}</span>
+<span style="font-size: 16px; font-weight: 800; line-height: 1.3">{{ c.title }}</span>
+<span style="font-size: 14px; color: #0B0B0C">{{ c.offer }}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- ============ CAMPAIGN BANNERS (existing hero slides) ============ -->
+<section aria-label="Campaigns" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="position: relative; border-radius: 16px; overflow: hidden; background: #F3F2EF">
+<a href="{{ L.coll }}" style="display: block">
+<img loading="lazy" src="{{ campImg }}" alt="{{ campAlt }}" style="width: 100%; aspect-ratio: {{ campRatio }}; object-fit: cover; display: block">
+</a>
+<button type="button" aria-label="Previous banner" onClick="{{ prevCamp }}" style="font-family: inherit; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(11,11,12,0.78); color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Next banner" onClick="{{ nextCamp }}" style="font-family: inherit; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(11,11,12,0.78); color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
+<div style="display: flex; justify-content: center; align-items: center; gap: 4px; margin-top: 12px">
+<sc-for list="{{ campDots }}" as="d" hint-placeholder-count="6">
+<button type="button" aria-label="{{ d.label }}" onClick="{{ d.go }}" style="font-family: inherit; width: 28px; height: 28px; border: none; background: transparent; padding: 0; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><span style="display: block; width: {{ d.w }}px; height: 8px; border-radius: 999px; background: {{ d.bg }}"></span></button>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ TOP CATEGORIES ============ -->
+<section aria-label="Top categories" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-direction: column; gap: 6px; margin-bottom: 22px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Explore</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Our October top categories</h2>
+</div>
+<div style="display: grid; grid-template-columns: {{ catCols }}; gap: {{ gap }}px">
+<sc-for list="{{ cats }}" as="k" hint-placeholder-count="4">
+<a href="{{ L.coll }}" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #0B0B0C; min-width: 0">
+<span style="display: block; border-radius: 14px; overflow: hidden; background: #ECECEC; aspect-ratio: 640 / 849">
+<img loading="lazy" src="{{ k.img }}" alt="{{ k.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</span>
+<span style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span style="font-size: {{ catTitle }}px; font-weight: 900; font-stretch: 108%; text-transform: uppercase; line-height: 1.1">{{ k.title }}</span>
+<span aria-hidden="true" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 999px; background: #0B0B0C; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ BEST SELLERS ============ -->
+<section aria-label="Best sellers" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Most loved</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Best sellers</h2>
+<p style="margin: 0; font-size: 15px; color: #5E5E66">The looks you keep coming back to.</p>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; border: 1.5px solid #0B0B0C; color: #0B0B0C; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">See what's hot</a>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Scroll best sellers left" onClick="{{ prevBest }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Scroll best sellers right" onClick="{{ nextBest }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</sc-if>
+</div>
+</div>
+<div ref="{{ refBest }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col5 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ best }}" as="x" hint-placeholder-count="5">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,460px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ JUST LANDED ============ -->
+<section aria-label="Just landed" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">New season. New obsessions.</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Just landed!</h2>
+<p style="margin: 0; font-size: 15px; color: #5E5E66">The latest pieces have entered the chat.</p>
+</div>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; border: 1.5px solid #0B0B0C; color: #0B0B0C; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">See what's new</a>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ landed }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ ON SALE!! ============ -->
+<section aria-label="On sale" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; padding: 14px 18px; border-radius: 12px; background: #0B0B0C; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 12px">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="{{ a.f }}" stroke="none" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
+<h2 style="margin: 0; font-size: {{ h2s }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1">On Sale!!</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 12.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">See all
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></a>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Scroll sale items left" onClick="{{ prevSale }}" style="font-family: inherit; width: 40px; height: 40px; border-radius: 999px; border: 1px solid #2A2A2E; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Scroll sale items right" onClick="{{ nextSale }}" style="font-family: inherit; width: 40px; height: 40px; border-radius: 999px; border: 1px solid #2A2A2E; background: transparent; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</sc-if>
+</div>
+</div>
+<div ref="{{ refSale }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ sale }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ TRENDING ============ -->
+<section aria-label="Trending" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Right now</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Trending</h2>
+<p style="margin: 0; max-width: 560px; font-size: 15px; line-height: 1.5; color: #5E5E66">What everyone's buying right now — our best-selling pieces, ranked by demand.</p>
+</div>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; border: 1.5px solid #0B0B0C; color: #0B0B0C; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">Shop trending</a>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ trending }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ VIVO OCTOBER MUST HAVES ============ -->
+<section aria-label="Vivo October must haves" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Vivo</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Vivo October Must Haves.</h2>
+<p style="margin: 0; font-size: 15px; color: #5E5E66">Shop here</p>
+</div>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; background: #0B0B0C; color: #FFFFFF; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">Shop Vivo October Must Haves.</a>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ vivo }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ PARTNER BRANDS ============ -->
+<section aria-label="Partner brands" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px 0; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Discover</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">More from our partner brands</h2>
+</div>
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; gap: 8px">
+<button type="button" aria-label="Scroll brands left" onClick="{{ prevBrands }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Scroll brands right" onClick="{{ nextBrands }}" style="font-family: inherit; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #E6E6E3; background: #FFFFFF; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+</div>
+</sc-if>
+</div>
+<div ref="{{ refBrands }}" style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ colBrand }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ brands }}" as="b" hint-placeholder-count="6">
+<a href="{{ L.coll }}" aria-label="Shop {{ b.title }}" style="position: relative; display: block; scroll-snap-align: start; border-radius: 14px; overflow: hidden; background: #ECECEC; aspect-ratio: 520 / 799; text-decoration: none">
+<img loading="lazy" src="{{ b.img }}" alt="{{ b.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 999px; background: #0B0B0C; color: #FFFFFF; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap">Shop now</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- ============ BLOGS ============ -->
+<section aria-label="Blogs" style="max-width: 1320px; margin: 0 auto; padding: {{ secY }}px {{ gx }}px {{ secY }}px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex: 1 1 360px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">Style notes</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Blogs</h2>
+</div>
+<a href="{{ L.home }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; border: 1.5px solid #0B0B0C; color: #0B0B0C; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">View all blogs</a>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ colBlog }}; gap: {{ blogGap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ blogs }}" as="g" hint-placeholder-count="3">
+<a href="{{ L.home }}" style="display: flex; flex-direction: column; gap: 14px; scroll-snap-align: start; text-decoration: none; color: #0B0B0C; min-width: 0">
+<span style="display: block; border-radius: 14px; overflow: hidden; background: #ECECEC; aspect-ratio: 1 / 1">
+<img loading="lazy" src="{{ g.img }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</span>
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5E5E66">{{ g.date }}</span>
+<span style="font-size: 19px; font-weight: 800; line-height: 1.3">{{ g.title }}</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: {{ a.t }}">Read more
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</sc-for>
+</div>
+</section>
+
+</main>
+
+<dc-import name="Footer" mob="{{ mob }}" acc="{{ accKey }}" hint-size="100%,700px"></dc-import>
+<dc-import name="Cart" open="{{ cartOpen }}" on-close="{{ closeCart }}" on-change="{{ setCount }}" added="{{ lastAdded }}" added-key="{{ addKey }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="0px,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"enum","options":["lime","orange","red","gold"],"default":"lime","section":"Black November"},"mob":{"editor":null},"$preview":{"width":1440,"height":8340}}'>
+const IMG = {
+  logo_inv: 'assets/logo_inv.webp',
+  k_dress: 'assets/k_dress.webp',
+  k_everyday: 'assets/k_everyday.webp',
+  k_night: 'assets/k_night.webp',
+  k_finishing: 'assets/k_finishing.webp',
+  h_korogaia: 'assets/h_korogaia.webp',
+  h_september: 'assets/h_september.webp',
+  h_workwear_pb: 'assets/h_workwear_pb.webp',
+  h_baridi: 'assets/h_baridi.webp',
+  h_footwear_pb: 'assets/h_footwear_pb.webp',
+  h_workwear_vivo: 'assets/h_workwear_vivo.webp',
+  hm_korogaia: 'assets/hm_korogaia.webp',
+  hm_september: 'assets/hm_september.webp',
+  hm_workwear_pb: 'assets/hm_workwear_pb.webp',
+  hm_baridi: 'assets/hm_baridi.webp',
+  hm_footwear_pb: 'assets/hm_footwear_pb.webp',
+  hm_workwear_vivo: 'assets/hm_workwear_vivo.webp',
+  b_izulu: 'assets/b_izulu.webp',
+  b_zoya: 'assets/b_zoya.webp',
+  b_safari: 'assets/b_safari.webp',
+  b_vazi: 'assets/b_vazi.webp',
+  b_stylish: 'assets/b_stylish.webp',
+  b_plainchic: 'assets/b_plainchic.webp',
+  b_gravio: 'assets/b_gravio.webp',
+  b_bohten: 'assets/b_bohten.webp',
+  b_yuva: 'assets/b_yuva.webp',
+  blog_sept: 'assets/blog_sept.webp',
+  blog_upgrades: 'assets/blog_upgrades.webp',
+  blog_rainy: 'assets/blog_rainy.webp',
+  p_puma: 'assets/p_puma.webp',
+  p_zuri_green: 'assets/p_zuri_green.webp',
+  p_wanjiku: 'assets/p_wanjiku.webp',
+  p_sidepleat: 'assets/p_sidepleat.webp',
+  p_nakshi: 'assets/p_nakshi.webp',
+  p_mansi_green: 'assets/p_mansi_green.webp',
+  p_mariste: 'assets/p_mariste.webp',
+  p_leisure_grey: 'assets/p_leisure_grey.webp',
+  p_reagan: 'assets/p_reagan.webp',
+  p_selah: 'assets/p_selah.webp',
+  p_izulu_sarah: 'assets/p_izulu_sarah.webp',
+  p_godet: 'assets/p_godet.webp',
+  p_majestic: 'assets/p_majestic.webp',
+  p_scuba_red: 'assets/p_scuba_red.webp',
+  p_inroses: 'assets/p_inroses.webp',
+  p_zehra: 'assets/p_zehra.webp',
+  p_hawi: 'assets/p_hawi.webp',
+  p_crewtee: 'assets/p_crewtee.webp',
+  p_julz: 'assets/p_julz.webp',
+  p_timyt: 'assets/p_timyt.webp',
+  p_sofi: 'assets/p_sofi.webp',
+  p_liora: 'assets/p_liora.webp',
+  p_poppy: 'assets/p_poppy.webp',
+  p_cassandra: 'assets/p_cassandra.webp',
+  p_leisure_offwhite: 'assets/p_leisure_offwhite.webp',
+  p_belt: 'assets/p_belt.webp',
+  p_zola: 'assets/p_zola.webp',
+  p_shona: 'assets/p_shona.webp',
+  p_tiered: 'assets/p_tiered.webp',
+  p_tashi: 'assets/p_tashi.webp',
+  p_prettygline: 'assets/p_prettygline.webp',
+  p_bangle1: 'assets/p_bangle1.webp',
+  p_nalani: 'assets/p_nalani.webp',
+  p_hessed: 'assets/p_hessed.webp',
+  p_purebuxom: 'assets/p_purebuxom.webp',
+  p_kipusa: 'assets/p_kipusa.webp',
+  p_nicole: 'assets/p_nicole.webp',
+  p_pipy: 'assets/p_pipy.webp',
+  p_lantern: 'assets/p_lantern.webp',
+  p_leo: 'assets/p_leo.webp',
+  p_sierra: 'assets/p_sierra.webp',
+  p_contrast_red: 'assets/p_contrast_red.webp',
+  p_mansi_navy: 'assets/p_mansi_navy.webp',
+  p_contrast_green: 'assets/p_contrast_green.webp',
+  p_alani: 'assets/p_alani.webp',
+  p_zuri_taupe: 'assets/p_zuri_taupe.webp',
+  p_leisure_brown: 'assets/p_leisure_brown.webp',
+  p_zuri_knee: 'assets/p_zuri_knee.webp',
+  p_tafari: 'assets/p_tafari.webp',
+  p_wideleg_olive: 'assets/p_wideleg_olive.webp',
+  p_everyday_taupe: 'assets/p_everyday_taupe.webp',
+  c_denim: 'assets/c_denim.webp',
+  c_ava: 'assets/c_ava.webp',
+  c_dale: 'assets/c_dale.webp',
+  c_bana: 'assets/c_bana.webp',
+  c_valtank: 'assets/c_valtank.webp',
+  c_avah: 'assets/c_avah.webp'
+};
+
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const fmt = (n) => 'KES ' + Number(n).toLocaleString('en-US');
+function P(id, title, vendor, img, price, compare, sizes, extra) {
+  return Object.assign({ id: id, title: title, vendor: vendor, img: IMG[img], price: price, compare: compare || 0, sizes: sizes || [] }, extra || {});
+}
+const S5 = ['S', 'M', 'L', '1X', '2X'];
+const D = 'Drop 01';
+
+// Products: titles, vendors, photos, prices and stock are live from shopzetu.com (14 Oct 2026).
+// Drop 01 prices on the six Vivo / Safari dresses are SAMPLE Black November prices.
+const X = {
+  puma: P('puma', 'Rebound Retro Puma White-Puma Black', 'Puma', 'p_puma', 17990, 0, ['7.5', '8', '8.5', '9', '9.5', '10', '10.5', '11', '12'], { fit: 'contain', bg: '#CCCCCC', stock: 2 }),
+  zuri_green: P('zuri_green', 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print', 'Vivo', 'p_zuri_green', 4830, 6900, S5, { drop: D }),
+  wanjiku: P('wanjiku', 'Kakiba Collections Wanjiku Maxi Dress - Orange', 'Kakiba Collections', 'p_wanjiku', 8500, 0, ['S', 'M', 'L', 'XL', 'XXL']),
+  sidepleat: P('sidepleat', 'Vivo Side Pleat Top in Jersey - Orange', 'Vivo', 'p_sidepleat', 2500, 0, S5),
+  nakshi: P('nakshi', 'African Yuva Nakshi Gown - Black', 'African Yuva', 'p_nakshi', 14500, 0, ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']),
+  mansi_green: P('mansi_green', 'Safari by Vivo Mansi Wide Hem Embroidered Tent Dress - Light Green', 'Safari by Vivo', 'p_mansi_green', 6400, 0, S5),
+  mariste: P('mariste', 'Mariste Jay Shift Dress - Emerald', 'Mariste', 'p_mariste', 4300, 0, ['S', 'M', 'L', 'XL', '2XL', '3XL']),
+  leisure_grey: P('leisure_grey', 'Vivo Basic Panelled Leisure Pants in Ponte - Grey', 'Vivo', 'p_leisure_grey', 4500, 0, ['XS', 'S', 'M', 'L', '1X', '2X', '3X', '4X']),
+  reagan: P('reagan', 'Lizola Reagan Bodycon Dress - Navy Blue / Pink', 'Lizola', 'p_reagan', 5500, 0, ['S', 'M', 'L']),
+  selah: P('selah', 'Vivo Selah Dolman Sweatshirt in Rib Sweater - Buttermilk', 'Vivo', 'p_selah', 3500, 0, ['S/M', 'L/1X']),
+  izulu_sarah: P('izulu_sarah', 'Izulu Sarah Pant Set - Rust Brown', 'Izulu', 'p_izulu_sarah', 10375, 0, ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']),
+  godet: P('godet', 'Vivo Godet Midi Dress in Crepe - Dark Purple', 'Vivo', 'p_godet', 4140, 6900, S5, { drop: D }),
+  majestic: P('majestic', 'Hats And More Majestic Radiance Kaftan Dress & Matching Headwrap - Silver Print', 'Hats And More', 'p_majestic', 10000, 0, ['F'], { stock: 3 }),
+  scuba_red: P('scuba_red', 'Vivo Sweatshirt in Scuba - Red', 'Vivo', 'p_scuba_red', 4500, 0, ['S/M', 'L/1X']),
+  inroses: P('inroses', 'Inroses 3-in-1 Flow Drape Kimono - Brown', 'Inroses Glitz', 'p_inroses', 4800, 0, ['F']),
+  zehra: P('zehra', 'Safari by Vivo Zehra 3/4 Sleeve Maxi Dress in Kitenge - Muru Print', 'Safari by Vivo', 'p_zehra', 4060, 5800, S5, { drop: D }),
+  hawi: P('hawi', 'Hawi Sartorial Victoria 2 Piece - Rust Sunset', 'Hawi Sartorial', 'p_hawi', 4250, 0, ['M', 'L', 'XL']),
+  crewtee: P('crewtee', 'Safari by Vivo Crew Neck Tee in Rib - Taupe', 'Safari by Vivo', 'p_crewtee', 2800, 0, ['S', 'M', 'L', '1X'], { stock: 1 }),
+  julz: P('julz', 'Julz Rainhaven Coral Boot - Coral', 'Julz', 'p_julz', 8320, 0, ['36', '37', '38', '39', '40', '41', '42']),
+  timyt: P('timyt', 'Timyt Urban Wear Cozy Puff Jacket - Biege', 'TimyT Urban Wear', 'p_timyt', 4300, 0, ['S', 'M', 'L', 'XL', 'XXL']),
+  sofi: P('sofi', 'Jolly Fancy Wear Sofi Shift Dress - Mustard', 'Jolly Fancy Wears', 'p_sofi', 3800, 4300, ['S', 'M', 'L', 'XL', 'XXL', 'XXXL']),
+  liora: P('liora', 'The Fashion Frenzy Liora Garden Midi Dress - Cream Print', 'The Fashion Frenzy', 'p_liora', 5800, 0, ['XS', 'S', 'M', 'L', 'XL'], { stock: 3 }),
+  poppy: P('poppy', 'Poppy Mini Skater Dress - Yellow', 'Plain Chic', 'p_poppy', 5800, 0, ['S', 'M', 'L', 'XL']),
+  cassandra: P('cassandra', 'Cassandra Ankara Kaftan Dress - Abstract Red Print', 'Elsie Glamour', 'p_cassandra', 3950, 0, ['XS', 'S', 'M', 'L', 'XL', '2XL'], { isNew: true }),
+  leisure_offwhite: P('leisure_offwhite', 'Vivo Basic Panelled Leisure Pants in Ponte - Off White', 'Vivo', 'p_leisure_offwhite', 4500, 0, S5, { isNew: true }),
+  belt: P('belt', 'Afrodame Fashion Belt - Taupe', 'AfroDame', 'p_belt', 1700, 0, ['F'], { isNew: true }),
+  zola: P('zola', 'Vivo Zola 3/4 Sleeve Maxi Dress in Crepe - Black', 'Vivo', 'p_zola', 3600, 7200, S5, { drop: D }),
+  shona: P('shona', 'Shona Elegant Two Piece Multicolored Mali Set', 'Hats And More', 'p_shona', 7500, 0, ['M', 'L', 'XL', 'XXL'], { isNew: true }),
+  tiered: P('tiered', 'Vivo Tiered Knee Length Dress in Chiffon - Dark Olive Green', 'Vivo', 'p_tiered', 3450, 6900, S5, { drop: D, stock: 1 }),
+  tashi: P('tashi', 'Elan CocoAfrike Tashi Aline Dress - Red', 'Elan CocoAfrike', 'p_tashi', 4568, 0, ['XS', 'S', 'M', 'L', 'XL']),
+  prettygline: P('prettygline', 'Pretty Gline Soft Cotton Dress - Floral', 'PrettyGline', 'p_prettygline', 4500, 0, ['S', 'L', 'XL', '2XL']),
+  bangle1: P('bangle1', 'Afrodame Chunky Bangle - Gold', 'AfroDame', 'p_bangle1', 800, 1200, ['F'], { tag: 'Non-returnable' }),
+  nalani: P('nalani', 'WSC Pambo Nalani Zephie Long Sleeve Crop Top - White', 'WSC Pambo', 'p_nalani', 1449, 2900, ['S', 'M', 'L']),
+  hessed: P('hessed', 'Hessed Midi Buttoned Waterfall - Navy blue', 'Hessed', 'p_hessed', 1500, 2500, ['S', 'M', 'L', 'XL']),
+  purebuxom: P('purebuxom', 'Pure Buxom Polka Two Toned Bubble Hem Skirt - Black /White', 'Pure Buxom', 'p_purebuxom', 1500, 3000, ['S', 'M', 'L', 'XL'], { stock: 3 }),
+  kipusa: P('kipusa', 'Kipusa Mahogany Keratin Cocunut Leave In Conditioner', 'Kipusa Beauty', 'p_kipusa', 1600, 2000, ['125ML'], { tag: 'Non-returnable' }),
+  nicole: P('nicole', 'Lizola Nicole Pants - Black', 'Lizola', 'p_nicole', 1700, 0, ['S', 'M', 'L', 'XL', '2XL', '3XL']),
+  pipy: P('pipy', 'Liliadly Pipy Dress - Black', 'Liliadly', 'p_pipy', 2765, 3950, ['S', 'M', 'L', 'XL']),
+  lantern: P('lantern', 'Merli Africa Lantern Top - Orange', 'Merli Africa', 'p_lantern', 2899, 4500, ['S', 'M', 'L', 'XL']),
+  leo: P('leo', 'Phyls Collections Leo Off Shoulder Dress - Blue', 'Phyls Collections', 'p_leo', 3185, 4550, ['S', 'M', 'L', 'XL']),
+  sierra: P('sierra', 'Vivo Sierra Maxi Dress in Chiffon - White / Orange Essia Print', 'Vivo', 'p_sierra', 4830, 6900, S5, { drop: D, rank: 1 }),
+  contrast_red: P('contrast_red', 'Vivo Contrast Stitch Wide Leg Pants in Twill - Dark Red', 'Vivo', 'p_contrast_red', 5400, 0, S5, { rank: 2 }),
+  mansi_navy: P('mansi_navy', 'Safari by Vivo Mansi Wide Hem Embroidered Tent Dress - Navy Blue', 'Safari by Vivo', 'p_mansi_navy', 6400, 0, S5, { rank: 3, stock: 1 }),
+  contrast_green: P('contrast_green', 'Vivo Contrast Stitch Wide Leg Pants in Twill - Dark Green', 'Vivo', 'p_contrast_green', 5400, 0, S5, { rank: 4 }),
+  alani: P('alani', 'Vivo Alani High Low Dress - Black Stripes Print', 'Vivo', 'p_alani', 2250, 5500, ['S', 'M', 'L', '1X'], { rank: 5, stock: 2 }),
+  zuri_taupe: P('zuri_taupe', 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Taupe / Brown Siolo Print', 'Vivo', 'p_zuri_taupe', 6900, 0, S5, { rank: 6 }),
+  leisure_brown: P('leisure_brown', 'Vivo Basic Panelled Leisure Pants in Ponte - Brown', 'Vivo', 'p_leisure_brown', 4500, 0, S5),
+  zuri_knee: P('zuri_knee', 'Vivo Zuri 3/4 Sleeve Knee Length Dress in Crepe - White / Purple Shina Print', 'Vivo', 'p_zuri_knee', 6200, 0, S5),
+  tafari: P('tafari', 'Safari by Vivo Tafari High Low Top in Kitenge - Tunda Print', 'Safari by Vivo', 'p_tafari', 4400, 0, ['F']),
+  wideleg_olive: P('wideleg_olive', 'Vivo Wide Leg Pants in Textured Crepe - Olive', 'Vivo', 'p_wideleg_olive', 3900, 0, S5),
+  everyday_taupe: P('everyday_taupe', 'Vivo Everyday Cap Sleeve Top in Jersey - Dark Taupe', 'Vivo', 'p_everyday_taupe', 2200, 0, S5),
+  denim: P('denim', 'Denim Haven High Rise Skinny Ripped Jeans - Deep Blue', 'Denim Haven', 'c_denim', 700, 3500, ['30', '32', '34', '36', '38', '40', '42'], { stock: 5, lowAt: 5 }),
+  ava: P('ava', 'Vivo Ava Tapered Pants - Black', 'Vivo', 'c_ava', 1350, 3950, ['XS', 'S', 'M', 'L', '1X', '2X', '3X', '4X'], { stock: 1, lowAt: 5 }),
+  dale: P('dale', 'Lizola Dale Bodycon Dress - Green', 'Lizola', 'c_dale', 2999, 8200, ['S', 'M', 'L', 'XL', '2XL', '3XL']),
+  bana: P('bana', 'Vivo Bana Batwing Top - Navy Blue', 'Vivo', 'c_bana', 2050, 3950, ['XS/S', 'S/M', 'M/L', 'L/XL', '1X/2X'], { stock: 4, lowAt: 5 }),
+  valtank: P('valtank', 'Zoya Basic Val Tank Top - Forest Green', 'Zoya', 'c_valtank', 850, 1550, ['S', 'M', 'L', '1X', '2X', '3X'], { stock: 1, lowAt: 5 }),
+  avah: P('avah', 'Lizola Avah Bodycon Dress - Maroon', 'Lizola', 'c_avah', 2999, 8200, ['S', 'M', 'L', 'XL', '2XL', '3XL'])
+};
+
+const BEST = ['puma', 'zuri_green', 'wanjiku', 'sidepleat', 'nakshi', 'mansi_green', 'mariste', 'leisure_grey', 'reagan', 'selah', 'izulu_sarah', 'godet', 'majestic', 'scuba_red', 'inroses', 'zehra', 'hawi', 'crewtee', 'julz', 'timyt', 'sofi', 'liora', 'poppy'].map((k) => X[k]);
+const LANDED = ['cassandra', 'leisure_offwhite', 'belt', 'zola', 'shona', 'tiered'].map((k) => X[k]);
+const SALE = ['tashi', 'prettygline', 'bangle1', 'nalani', 'hessed', 'purebuxom', 'kipusa', 'nicole', 'pipy', 'lantern', 'leo'].map((k) => X[k]);
+const TRENDING = ['sierra', 'contrast_red', 'mansi_navy', 'contrast_green', 'alani', 'zuri_taupe'].map((k) => X[k]);
+const VIVO = ['zuri_taupe', 'leisure_brown', 'zuri_knee', 'tafari', 'wideleg_olive', 'everyday_taupe'].map((k) => Object.assign({}, X[k], { rank: 0 }));
+const FLASH = ['denim', 'ava', 'dale', 'bana', 'valtank', 'avah'].map((k) => X[k]);
+const DROP_LIST = ['zuri_green', 'godet', 'zola', 'zehra', 'sierra', 'tiered'].map((k) => Object.assign({}, X[k], { rank: 0 }));
+
+const CATS = [
+  { title: 'Dress to Impress', img: IMG.k_dress },
+  { title: 'Everyday, Elevated', img: IMG.k_everyday },
+  { title: 'Into the Night', img: IMG.k_night },
+  { title: 'The Finishing Touch', img: IMG.k_finishing }
+];
+const CAMPAIGNS = [
+  { t: 'Koro Gaia, now on Shopzetu — Glow, Inherited', d: IMG.h_korogaia, m: IMG.hm_korogaia },
+  { t: 'Vivo — New pieces, endless looks', d: IMG.h_september, m: IMG.hm_september },
+  { t: 'The Power Edit — Boardroom-ready. Budget-friendly.', d: IMG.h_workwear_pb, m: IMG.hm_workwear_pb },
+  { t: 'Vivo — Made for the moment, when you need an extra layer', d: IMG.h_baridi, m: IMG.hm_baridi },
+  { t: 'Sole Mates — Comfort you will actually wear out', d: IMG.h_footwear_pb, m: IMG.hm_footwear_pb },
+  { t: 'Vivo — Made for the work, styled for the woman', d: IMG.h_workwear_vivo, m: IMG.hm_workwear_vivo }
+];
+const BRANDS = [
+  { title: 'Izulu', img: IMG.b_izulu }, { title: 'Zoya', img: IMG.b_zoya }, { title: 'Safari By Vivo', img: IMG.b_safari },
+  { title: 'Vazi Afriq', img: IMG.b_vazi }, { title: 'Stylish Sisters', img: IMG.b_stylish }, { title: 'Plain Chic', img: IMG.b_plainchic },
+  { title: 'Gravio Fashions', img: IMG.b_gravio }, { title: 'Bohten', img: IMG.b_bohten }, { title: 'African Yuva', img: IMG.b_yuva }
+];
+const BLOGS = [
+  { title: 'September Style Forecast: The Layering Pieces, Kimonos, and Jumpsuits You Need Right Now', date: 'September 11, 2026', img: IMG.blog_sept },
+  { title: 'Little upgrades, outfits that look rich', date: 'March 31, 2026', img: IMG.blog_upgrades },
+  { title: 'Rainy season slays in 2-pieces', date: 'March 16, 2026', img: IMG.blog_rainy }
+];
+const ROWS = ['flash', 'drop', 'best', 'sale', 'brands'];
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    this.state = { w: iw, cartOpen: false, cartCount: 3, addKey: 0, lastAdded: null, flashTab: 'today', camp: 0 };
+    this.rows = {};
+    this.rowRefs = {};
+    ROWS.forEach((k) => { this.rowRefs[k] = (el) => { if (el) this.rows[k] = el; }; });
+    this.ro = null;
+    this.rootEl = null;
+    this.timer = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+    this.openCart = () => this.setState({ cartOpen: true });
+    this.closeCart = () => this.setState({ cartOpen: false });
+    this.setCount = (n) => { if (typeof n === 'number' && n !== this.state.cartCount) this.setState({ cartCount: n }); };
+    this.addToCart = (p) => this.setState((s) => ({ cartOpen: true, addKey: s.addKey + 1, lastAdded: p || null }));
+  }
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState((s) => ({ camp: (s.camp + 1) % CAMPAIGNS.length })), 6000);
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+    if (this.timer) clearInterval(this.timer);
+  }
+  scroll(k, dir) {
+    const el = this.rows[k];
+    if (el && el.scrollBy) el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: 'smooth' });
+  }
+  renderVals() {
+    const w = this.state.w;
+    const mobile = w < 760;
+    const tablet = !mobile && w < 1100;
+    const desk = w >= 1100;
+    const mob = this.props.mob ? '1' : '';
+    const accKey = ACCENTS[this.props.accent] ? this.props.accent : 'lime';
+    const a = ACCENTS[accKey];
+    const L = mob
+      ? { home: 'MobileHome.dc.html', coll: 'MobileCollection.dc.html', pdp: 'MobileProduct.dc.html' }
+      : { home: './', coll: 'Collection.dc.html', pdp: 'Product.dc.html' };
+    const gap = mobile ? 12 : 16;
+    const idx = this.state.camp % CAMPAIGNS.length;
+    const camp = CAMPAIGNS[idx];
+    const today = this.state.flashTab === 'today';
+    const heroPics = [
+      { title: X.godet.title, name: 'Vivo Godet Midi Dress', img: X.godet.img, tag: '-40%', now: fmt(X.godet.price), was: fmt(X.godet.compare), offset: 0 },
+      { title: X.zola.title, name: 'Vivo Zola Maxi Dress', img: X.zola.img, tag: '-50%', now: fmt(X.zola.price), was: fmt(X.zola.compare), offset: mobile ? 18 : 44 },
+      { title: X.tiered.title, name: 'Vivo Tiered Chiffon Dress', img: X.tiered.img, tag: '-50%', now: fmt(X.tiered.price), was: fmt(X.tiered.compare), offset: mobile ? 0 : 12 }
+    ];
+    const tiers = [
+      { kick: 'Up to', num: '30%', word: 'off', bg: '#161618', border: '#2A2A2E', fg: '#FFFFFF', kicker: '#A9A9B2', numColor: '#FFFFFF', link: a.f },
+      { kick: 'Up to', num: '50%', word: 'off', bg: a.f, border: a.f, fg: '#0B0B0C', kicker: '#0B0B0C', numColor: '#0B0B0C', link: '#0B0B0C' },
+      { kick: 'Up to', num: '70%', word: 'off', bg: '#161618', border: a.f, fg: '#FFFFFF', kicker: '#A9A9B2', numColor: a.f, link: a.f },
+      { kick: 'Budget friendly', num: 'Under', word: 'KES 2,000', bg: '#FFFFFF', border: '#FFFFFF', fg: '#0B0B0C', kicker: '#5E5E66', numColor: '#0B0B0C', link: a.t }
+    ];
+    const calendar = [
+      { label: 'Drop 01', dates: 'Sun 1 – Sun 8 Nov', title: 'Dresses', offer: 'Up to 50% off', status: 'Live now', live: true },
+      { label: 'Drop 02', dates: 'Mon 9 – Sun 15 Nov', title: 'Outerwear & knits', offer: 'Up to 40% off', status: 'Mon 9 Nov', live: false },
+      { label: 'Drop 03', dates: 'Mon 16 – Sun 22 Nov', title: 'Shoes & accessories', offer: 'Up to 50% off', status: 'Mon 16 Nov', live: false },
+      { label: 'Drop 04', dates: 'Mon 23 – Mon 30 Nov', title: 'Black Friday week', offer: 'Up to 70% off everything', status: 'Mon 23 Nov', live: false }
+    ].map((c) => Object.assign(c, {
+      bar: c.live ? a.f : '#E6E6E3', labelColor: c.live ? a.t : '#5E5E66',
+      chipBg: c.live ? a.f : '#F3F2EF', chipFg: '#0B0B0C'
+    }));
+    return {
+      rootRef: this.rootRef, mob, accKey, a, L, img: IMG,
+      mobile, tablet, desk, notMobile: !mobile,
+      gx: mobile ? 16 : (tablet ? 24 : 32), gap,
+      bleed: mobile ? -16 : 0, bleedPad: mobile ? 16 : 0,
+      secY: mobile ? 44 : 72,
+      h1: mobile ? 40 : (tablet ? 56 : 68), h2: mobile ? 24 : 32, h2s: mobile ? 22 : 26, lead: mobile ? 15 : 17,
+      heroCols: desk ? 'minmax(0, 1.05fr) minmax(0, 0.95fr)' : 'minmax(0, 1fr)',
+      heroPadY: mobile ? 32 : 64, heroGap: desk ? 56 : 28, heroStack: mobile ? 18 : 22,
+      ctaFlex: mobile ? '1 1 100%' : '0 0 auto',
+      picGap: mobile ? 8 : 14, tagSize: mobile ? 11 : 13,
+      cdSize: mobile ? 'sm' : 'md',
+      dropSecs: 279729, flashSecs: 20529,
+      heroPics,
+      tierCols: mobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))',
+      tierPadTop: mobile ? 28 : 8, tierH: mobile ? 128 : 150, tierPad: mobile ? 14 : 20,
+      tierNum: mobile ? 34 : 50, tierWord: mobile ? 14 : 18,
+      tiers,
+      col6: mobile ? '44%' : (tablet ? 'calc((100% - 48px) / 4)' : 'calc((100% - 80px) / 6)'),
+      col5: mobile ? '44%' : (tablet ? 'calc((100% - 48px) / 4)' : 'calc((100% - 64px) / 5)'),
+      col3: mobile ? '62%' : 'calc((100% - 32px) / 3)',
+      colBrand: mobile ? '46%' : (tablet ? 'calc((100% - 48px) / 4)' : 'calc((100% - 80px) / 6)'),
+      colBlog: mobile ? '82%' : 'calc((100% - 56px) / 3)', blogGap: mobile ? 12 : 28,
+      flash: FLASH, drop: DROP_LIST, best: BEST, landed: LANDED, sale: SALE, trending: TRENDING, vivo: VIVO,
+      cats: CATS, brands: BRANDS, blogs: BLOGS, calendar,
+      catCols: mobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))', catTitle: mobile ? 14 : 18,
+      lockedSlots: [1, 2, 3, 4, 5, 6].map((n) => ({ n })),
+      flashToday: today, flashTomorrow: !today,
+      todaySel: today ? 'true' : 'false', tomorrowSel: today ? 'false' : 'true',
+      todayBg: today ? a.f : 'transparent', todayFg: today ? '#0B0B0C' : '#FFFFFF',
+      tomorrowBg: today ? 'transparent' : a.f, tomorrowFg: today ? '#FFFFFF' : '#0B0B0C',
+      showToday: () => this.setState({ flashTab: 'today' }),
+      showTomorrow: () => this.setState({ flashTab: 'tomorrow' }),
+      dropCols: desk ? 'minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr)' : 'minmax(0, 1fr)',
+      dropGap: mobile ? 16 : 20, promoH: mobile ? 460 : 520, circle: mobile ? 210 : 236, circleWord: mobile ? 32 : 38,
+      sideRows: desk ? 'repeat(2, minmax(0, 1fr))' : 'auto',
+      sideCols: desk ? 'minmax(0, 1fr)' : (mobile ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))'),
+      calTop: mobile ? 24 : 32, calPad: mobile ? 18 : 28, calGap: mobile ? 18 : 24,
+      calCols: mobile ? 'minmax(0, 1fr)' : (tablet ? 'repeat(2, minmax(0, 1fr))' : 'repeat(4, minmax(0, 1fr))'),
+      campImg: mobile ? camp.m : camp.d, campAlt: camp.t, campRatio: mobile ? '1 / 1' : '1600 / 544',
+      campDots: CAMPAIGNS.map((c, i) => ({
+        label: 'Show banner ' + (i + 1) + ' of ' + CAMPAIGNS.length,
+        w: i === idx ? 24 : 8, bg: i === idx ? a.f : '#CFCFCB',
+        go: () => this.setState({ camp: i })
+      })),
+      prevCamp: () => this.setState((s) => ({ camp: (s.camp + CAMPAIGNS.length - 1) % CAMPAIGNS.length })),
+      nextCamp: () => this.setState((s) => ({ camp: (s.camp + 1) % CAMPAIGNS.length })),
+      refFlash: this.rowRefs.flash, refDrop: this.rowRefs.drop, refBest: this.rowRefs.best, refSale: this.rowRefs.sale, refBrands: this.rowRefs.brands,
+      prevFlash: () => this.scroll('flash', -1), nextFlash: () => this.scroll('flash', 1),
+      prevDrop: () => this.scroll('drop', -1), nextDrop: () => this.scroll('drop', 1),
+      prevBest: () => this.scroll('best', -1), nextBest: () => this.scroll('best', 1),
+      prevSale: () => this.scroll('sale', -1), nextSale: () => this.scroll('sale', 1),
+      prevBrands: () => this.scroll('brands', -1), nextBrands: () => this.scroll('brands', 1),
+      cartOpen: this.state.cartOpen, cartCount: this.state.cartCount, addKey: this.state.addKey, lastAdded: this.state.lastAdded,
+      openCart: this.openCart, closeCart: this.closeCart, setCount: this.setCount, addToCart: this.addToCart
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Product page (Black November)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="width: 100%; background: #FFFFFF; color: #0B0B0C; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip">
+
+<dc-import name="Header" active="WOMEN" count="{{ cartCount }}" on-cart="{{ openCart }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="100%,164px"></dc-import>
+
+<main style="max-width: 1320px; margin: 0 auto; padding: 0 {{ gx }}px; box-sizing: border-box">
+
+<nav aria-label="Breadcrumb" style="padding: 16px 0 14px; overflow-x: auto; scrollbar-width: none">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: #5E5E66; white-space: nowrap">
+<li><a href="{{ L.home }}" style="color: #5E5E66; text-decoration: none">Home</a></li>
+<li aria-hidden="true">/</li>
+<li><a href="{{ L.coll }}" style="color: #5E5E66; text-decoration: none">Women</a></li>
+<li aria-hidden="true">/</li>
+<li><a href="{{ L.coll }}" style="color: #5E5E66; text-decoration: none">Dresses</a></li>
+<li aria-hidden="true">/</li>
+<li><a href="{{ L.coll }}" style="color: #5E5E66; text-decoration: none">Maxi Dresses</a></li>
+<li aria-hidden="true">/</li>
+<li aria-current="page" style="color: #0B0B0C; font-weight: 700">Vivo Zuri Cap Sleeve Maxi Dress</li>
+</ol>
+</nav>
+
+<div style="display: grid; grid-template-columns: {{ mainCols }}; gap: {{ mainGap }}px; align-items: start">
+
+<!-- Gallery -->
+<section aria-label="Product images" style="display: grid; grid-template-columns: {{ galCols }}; gap: 14px; min-width: 0">
+<sc-if value="{{ desk }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="5">
+<button type="button" aria-label="{{ t.label }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}" style="font-family: inherit; width: 76px; height: 126px; padding: 0; border-radius: 10px; overflow: hidden; border: 2px solid {{ t.border }}; background: #ECECEC; cursor: pointer">
+<img loading="lazy" src="{{ t.img }}" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</button>
+</sc-for>
+</div>
+</sc-if>
+<div style="position: relative; border-radius: 16px; overflow: hidden; background: #ECECEC; aspect-ratio: {{ mainRatio }}">
+<img loading="lazy" src="{{ mainImg }}" alt="{{ mainAlt }}" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; display: block">
+<span style="position: absolute; top: 14px; left: 14px; display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 14px; font-weight: 900">-{{ pct }}%</span>
+<button type="button" aria-label="Previous image" onClick="{{ prevImg }}" style="font-family: inherit; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.94); color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Next image" onClick="{{ nextImg }}" style="font-family: inherit; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255, 255, 255, 0.94); color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
+<span style="position: absolute; right: 14px; bottom: 14px; height: 28px; padding: 0 10px; border-radius: 999px; background: rgba(11, 11, 12, 0.82); color: #FFFFFF; font-size: 12.5px; font-weight: 700; display: inline-flex; align-items: center">{{ imgCounter }}</span>
+</div>
+</section>
+
+<!-- Buy box -->
+<section aria-label="Product details" style="position: {{ buyPos }}; top: 24px; display: flex; flex-direction: column; gap: 18px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border-radius: 6px; background: #0B0B0C; color: {{ a.f }}; font-size: 11.5px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase"><span style="width: 7px; height: 7px; background: {{ a.f }}; display: inline-block"></span>Drop 01 · Dresses up to 50% off</span>
+<dc-import name="Countdown" seconds="{{ dropSecs }}" tone="light" kind="inline" size="sm" acc="{{ accKey }}" hint-size="170px,32px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<a href="{{ L.coll }}" style="align-self: flex-start; font-size: 12.5px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: #0B0B0C; text-decoration: none; border-bottom: 2px solid {{ a.f }}; padding-bottom: 2px">Vivo</a>
+<h1 style="margin: 0; font-size: {{ titleSize }}px; font-weight: 800; line-height: 1.2">Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print</h1>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13.5px; color: #5E5E66">
+<span aria-hidden="true" style="display: inline-flex; gap: 2px">
+<sc-for list="{{ stars }}" as="st" hint-placeholder-count="5">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A9AA3" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"></path></svg>
+</sc-for>
+</span>
+<span>No reviews yet</span>
+<a href="#reviews" style="color: #0B0B0C; font-weight: 700">Write a review</a>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 12px; background: #F3F2EF">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px">
+<span style="font-size: 32px; font-weight: 900; color: {{ a.t }}; line-height: 1">{{ priceStr }}</span>
+<s style="font-size: 17px; color: #5E5E66">{{ compareStr }}</s>
+<span style="display: inline-flex; align-items: center; height: 26px; padding: 0 8px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 13px; font-weight: 900">-{{ pct }}%</span>
+</div>
+<span style="font-size: 14px; font-weight: 700">You save {{ saveStr }} this Black November</span>
+<span style="font-size: 13px; color: #5E5E66">Drop 01 price ends Sunday 8 November, 23:59</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px"><span style="font-weight: 800">Colour:</span> Dark Green / Green Siolo Print</span>
+<span style="display: inline-flex; width: 52px; height: 52px; border-radius: 999px; padding: 2px; border: 2px solid #0B0B0C; box-sizing: border-box">
+<img loading="lazy" src="{{ img.g_zuri1 }}" alt="Dark Green / Green Siolo Print" style="width: 100%; height: 100%; border-radius: 999px; object-fit: cover; object-position: 50% 45%; display: block">
+</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px">
+<span style="font-size: 14px"><span style="font-weight: 800">Size:</span> {{ sizeLabel }}</span>
+<a href="{{ L.pdp }}" style="font-size: 13px; font-weight: 700; color: #0B0B0C">Size guide</a>
+</div>
+<div role="radiogroup" aria-label="Size" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ sizes }}" as="z" hint-placeholder-count="5">
+<button type="button" role="radio" aria-checked="{{ z.checked }}" aria-disabled="{{ z.disabledStr }}" aria-label="{{ z.label }}" onClick="{{ z.pick }}" style="font-family: inherit; min-width: 58px; height: 48px; padding: 0 14px; border-radius: 8px; border: 1.5px solid {{ z.border }}; background: {{ z.bg }}; color: {{ z.fg }}; font-size: 14.5px; font-weight: 800; text-decoration: {{ z.deco }}; cursor: {{ z.cursor }}">{{ z.s }}</button>
+</sc-for>
+</div>
+<sc-if value="{{ showStock }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: {{ a.t }}"><span style="width: 8px; height: 8px; border-radius: 999px; background: {{ a.f }}; display: inline-block"></span>{{ stockText }}</span>
+</sc-if>
+<sc-if value="{{ sizeError }}" hint-placeholder-val="{{ false }}">
+<span role="alert" style="font-size: 13.5px; font-weight: 700; color: #B3241A">Please choose a size first.</span>
+</sc-if>
+</div>
+
+<div style="display: flex; gap: 10px">
+<div style="display: inline-flex; align-items: center; border: 1.5px solid #E6E6E3; border-radius: 8px; flex-shrink: 0">
+<button type="button" aria-label="Decrease quantity" onClick="{{ decQty }}" style="font-family: inherit; width: 44px; height: 52px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+<span aria-live="polite" style="min-width: 28px; text-align: center; font-size: 15px; font-weight: 800">{{ qty }}</span>
+<button type="button" aria-label="Increase quantity" onClick="{{ incQty }}" style="font-family: inherit; width: 44px; height: 52px; border: none; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+</div>
+<button type="button" onClick="{{ addToCartClick }}" style="font-family: inherit; flex: 1 1 auto; height: 55px; border-radius: 8px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; cursor: pointer">{{ addMainLabel }}</button>
+<button type="button" aria-pressed="{{ wishPressed }}" aria-label="{{ wishLabel }}" onClick="{{ toggleWish }}" style="font-family: inherit; width: 55px; height: 55px; flex-shrink: 0; border-radius: 8px; border: 1.5px solid #0B0B0C; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="{{ wishFill }}" stroke="{{ wishStroke }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.6 1.2 4.6 2.7C12 6.2 13.6 5 15.6 5 19 5 20.7 8.4 19.2 11.4 17 15.6 12 20 12 20z"></path></svg>
+</button>
+</div>
+<a href="https://wa.me/254748419357" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; border-radius: 8px; border: 1.5px solid #E6E6E3; color: #0B0B0C; text-decoration: none; font-size: 13.5px; font-weight: 800">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg>
+Ask about this dress on WhatsApp</a>
+
+<ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #E6E6E3; border-radius: 12px">
+<li style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #E6E6E3">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ a.t }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg>
+<span style="display: flex; flex-direction: column; gap: 2px; font-size: 14px"><span style="font-weight: 800">Delivery &amp; Returns</span><a href="{{ L.home }}" style="color: #5E5E66; font-size: 13px">See delivery options and the return process</a></span>
+</li>
+<li style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #E6E6E3">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ a.t }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>
+<span style="display: flex; flex-direction: column; gap: 2px; font-size: 14px"><span style="font-weight: 800">Refund and Exchange Policy</span><a href="{{ L.home }}" style="color: #5E5E66; font-size: 13px">How refunds and exchanges work</a></span>
+</li>
+<li style="display: flex; align-items: center; gap: 12px; padding: 14px 16px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ a.t }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+<span style="display: flex; flex-direction: column; gap: 2px; font-size: 14px"><span style="font-weight: 800">Secure checkout</span><span style="color: #5E5E66; font-size: 13px">Safe, encrypted payments</span></span>
+</li>
+</ul>
+
+<div style="border-top: 1px solid #E6E6E3">
+<sc-for list="{{ accordions }}" as="ac" hint-placeholder-count="3">
+<div style="border-bottom: 1px solid #E6E6E3">
+<button type="button" aria-expanded="{{ ac.expanded }}" onClick="{{ ac.toggle }}" style="font-family: inherit; width: 100%; height: 56px; padding: 0; display: flex; align-items: center; justify-content: space-between; border: none; background: transparent; color: #0B0B0C; font-size: 14px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">{{ ac.t }}
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate({{ ac.rot }}deg)"><path d="M6 9l6 6 6-6"></path></svg></button>
+<sc-if value="{{ ac.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 0 18px; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{ ac.lines }}" as="ln" hint-placeholder-count="2">
+<p style="margin: 0; font-size: 14.5px; line-height: 1.65; color: #2A2A2E">{{ ln.t }}</p>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+
+</div>
+
+<!-- Inspired by your selection -->
+<section aria-label="Inspired by your selection" style="padding-top: {{ secY }}px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #5E5E66">You may also like</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1; color: {{ a.t }}">Inspired by your selection</h2>
+</div>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 6px; border: 1.5px solid #0B0B0C; color: #0B0B0C; font-size: 12.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap">Shop maxi dresses</a>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col6 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 {{ bleed }}px; padding: 0 {{ bleedPad }}px; scroll-padding: 0 {{ bleedPad }}px">
+<sc-for list="{{ related }}" as="x" hint-placeholder-count="6">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- Flash deals cross-sell -->
+<section aria-label="Today's flash deals" style="margin-top: {{ secY }}px; border-radius: 16px; background: #0B0B0C; color: #FFFFFF; padding: {{ flashPad }}px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ a.f }}">Complete the look for less</span>
+<h2 style="margin: 0; font-size: {{ h2 }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1">Today's flash deals</h2>
+</div>
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #A9A9B2">Ends in</span>
+<dc-import name="Countdown" seconds="{{ flashSecs }}" tone="dark" kind="boxes" size="sm" acc="{{ accKey }}" hint-size="150px,58px"></dc-import>
+</div>
+</div>
+<div style="display: grid; grid-auto-flow: column; grid-auto-columns: {{ col4 }}; gap: {{ gap }}px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none">
+<sc-for list="{{ flash }}" as="x" hint-placeholder-count="4">
+<div style="scroll-snap-align: start; min-width: 0">
+<dc-import name="ProductCard" p="{{ x }}" tone="dark" mob="{{ mob }}" acc="{{ accKey }}" on-add="{{ addToCart }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" aria-label="Customer reviews" style="padding: {{ secY }}px 0">
+<div style="display: grid; grid-template-columns: {{ revCols }}; gap: 24px; align-items: center; padding: {{ revPad }}px; border-radius: 16px; border: 1px solid #E6E6E3">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: {{ h2s }}px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; line-height: 1">Customer reviews</h2>
+<span style="font-size: 15px; color: #5E5E66">No reviews yet. Be the first to review this dress.</span>
+</div>
+<button type="button" style="font-family: inherit; justify-self: {{ revAlign }}; height: 48px; padding: 0 22px; border-radius: 6px; border: none; background: #0B0B0C; color: #FFFFFF; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Write a review</button>
+</div>
+</section>
+
+</main>
+
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+<div style="position: sticky; bottom: 0; z-index: 35; background: #FFFFFF; border-top: 1px solid #E6E6E3; padding: 10px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 -8px 24px rgba(11, 11, 12, 0.08)">
+<span style="display: flex; flex-direction: column; gap: 1px; flex-shrink: 0">
+<span style="font-size: 17px; font-weight: 900; color: {{ a.t }}">{{ priceStr }}</span>
+<s style="font-size: 12px; color: #5E5E66">{{ compareStr }}</s>
+</span>
+<button type="button" onClick="{{ addToCartClick }}" style="font-family: inherit; flex: 1 1 auto; height: 50px; border-radius: 8px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 13.5px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">{{ stickyLabel }}</button>
+</div>
+</sc-if>
+
+<dc-import name="Footer" mob="{{ mob }}" acc="{{ accKey }}" hint-size="100%,700px"></dc-import>
+<dc-import name="Cart" open="{{ cartOpen }}" on-close="{{ closeCart }}" on-change="{{ setCount }}" added="{{ lastAdded }}" added-key="{{ addKey }}" mob="{{ mob }}" acc="{{ accKey }}" embedded="1" hint-size="0px,0px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"enum","options":["lime","orange","red","gold"],"default":"lime","section":"Black November"},"mob":{"editor":null},"$preview":{"width":1440,"height":3560}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const IMG = {
+  g_zuri1: 'assets/g_zuri1.webp',
+  g_zuri2: 'assets/g_zuri2.webp',
+  g_zuri3: 'assets/g_zuri3.webp',
+  g_zuri4: 'assets/g_zuri4.webp',
+  g_zuri5: 'assets/g_zuri5.webp',
+  p_zuri_green: 'assets/p_zuri_green.webp',
+  p_zuri_taupe: 'assets/p_zuri_taupe.webp',
+  p_zuri_knee: 'assets/p_zuri_knee.webp',
+  p_sierra: 'assets/p_sierra.webp',
+  p_godet: 'assets/p_godet.webp',
+  p_zola: 'assets/p_zola.webp',
+  p_tiered: 'assets/p_tiered.webp',
+  c_denim: 'assets/c_denim.webp',
+  c_ava: 'assets/c_ava.webp',
+  c_dale: 'assets/c_dale.webp',
+  c_bana: 'assets/c_bana.webp'
+};
+const fmt = (n) => 'KES ' + Number(n).toLocaleString('en-US');
+const S5 = ['S', 'M', 'L', '1X', '2X'];
+// Live product data (14 Oct 2026). The KES 4,830 Drop 01 price is a SAMPLE Black November price (live price KES 6,900).
+const PRICE = 4830;
+const COMPARE = 6900;
+const GALLERY = [IMG.g_zuri1, IMG.g_zuri2, IMG.g_zuri3, IMG.g_zuri4, IMG.g_zuri5];
+const SIZES = [{ s: 'S', stock: 2 }, { s: 'M', stock: 2 }, { s: 'L', stock: 3 }, { s: '1X', stock: 2 }, { s: '2X', stock: 0 }];
+const DESCRIPTION = 'Elevate your wardrobe with the Vivo Zuri Cap Sleeve Maxi Dress in luxurious crepe. This timeless silhouette features delicate cap sleeves and a flowing maxi length that flatters every figure. The sophisticated crepe fabric drapes beautifully, making it perfect for evening events, formal occasions, or elevated everyday wear. Comfortable yet refined, this dress transitions seamlessly from day to night. A versatile essential that works with heels, flats, or accessories of your choice.';
+const RELATED = [
+  { id: 'zuri_taupe', title: 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Taupe / Brown Siolo Print', vendor: 'Vivo', img: IMG.p_zuri_taupe, price: 6900, compare: 0, sizes: S5 },
+  { id: 'zuri_knee', title: 'Vivo Zuri 3/4 Sleeve Knee Length Dress in Crepe - White / Purple Shina Print', vendor: 'Vivo', img: IMG.p_zuri_knee, price: 6200, compare: 0, sizes: S5 },
+  { id: 'sierra', title: 'Vivo Sierra Maxi Dress in Chiffon - White / Orange Essia Print', vendor: 'Vivo', img: IMG.p_sierra, price: 4830, compare: 6900, sizes: S5, drop: 'Drop 01' },
+  { id: 'godet', title: 'Vivo Godet Midi Dress in Crepe - Dark Purple', vendor: 'Vivo', img: IMG.p_godet, price: 4140, compare: 6900, sizes: S5, drop: 'Drop 01' },
+  { id: 'zola', title: 'Vivo Zola 3/4 Sleeve Maxi Dress in Crepe - Black', vendor: 'Vivo', img: IMG.p_zola, price: 3600, compare: 7200, sizes: S5, drop: 'Drop 01' },
+  { id: 'tiered', title: 'Vivo Tiered Knee Length Dress in Chiffon - Dark Olive Green', vendor: 'Vivo', img: IMG.p_tiered, price: 3450, compare: 6900, sizes: S5, drop: 'Drop 01', stock: 1 }
+];
+const FLASH = [
+  { id: 'denim', title: 'Denim Haven High Rise Skinny Ripped Jeans - Deep Blue', vendor: 'Denim Haven', img: IMG.c_denim, price: 700, compare: 3500, sizes: ['30', '32', '34'], stock: 5, lowAt: 5 },
+  { id: 'ava', title: 'Vivo Ava Tapered Pants - Black', vendor: 'Vivo', img: IMG.c_ava, price: 1350, compare: 3950, sizes: ['XS', 'S', 'M'], stock: 1, lowAt: 5 },
+  { id: 'dale', title: 'Lizola Dale Bodycon Dress - Green', vendor: 'Lizola', img: IMG.c_dale, price: 2999, compare: 8200, sizes: ['S', 'M', 'L'] },
+  { id: 'bana', title: 'Vivo Bana Batwing Top - Navy Blue', vendor: 'Vivo', img: IMG.c_bana, price: 2050, compare: 3950, sizes: ['XS/S', 'S/M'], stock: 4, lowAt: 5 }
+];
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    this.state = {
+      w: iw, img: 0, size: null, qty: 1, wish: false, sizeError: false,
+      open: { Description: true },
+      cartOpen: false, cartCount: 3, addKey: 0, lastAdded: null
+    };
+    this.ro = null;
+    this.rootEl = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+    this.openCart = () => this.setState({ cartOpen: true });
+    this.closeCart = () => this.setState({ cartOpen: false });
+    this.setCount = (n) => { if (typeof n === 'number' && n !== this.state.cartCount) this.setState({ cartCount: n }); };
+    this.addToCart = (p) => this.setState((s) => ({ cartOpen: true, addKey: s.addKey + 1, lastAdded: p || null }));
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+  renderVals() {
+    const s = this.state;
+    const w = s.w;
+    const mobile = w < 760;
+    const tablet = !mobile && w < 1100;
+    const desk = w >= 1100;
+    const mob = this.props.mob ? '1' : '';
+    const accKey = ACCENTS[this.props.accent] ? this.props.accent : 'lime';
+    const a = ACCENTS[accKey];
+    const L = mob
+      ? { home: 'MobileHome.dc.html', coll: 'MobileCollection.dc.html', pdp: 'MobileProduct.dc.html' }
+      : { home: './', coll: 'Collection.dc.html', pdp: 'Product.dc.html' };
+    const pct = Math.round((1 - PRICE / COMPARE) * 100);
+    const sel = SIZES.find((z) => z.s === s.size) || null;
+    const n = GALLERY.length;
+    const addMain = () => {
+      if (!this.state.size) { this.setState({ sizeError: true }); return; }
+      const z = this.state.size;
+      const p = {
+        id: z === 'M' ? 'zuri_green' : 'zuri_green_' + z,
+        title: 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print',
+        vendor: 'Vivo', img: IMG.p_zuri_green, price: PRICE, compare: COMPARE, sizes: [z], drop: 'Drop 01'
+      };
+      this.addToCart(p);
+    };
+    const accDefs = [
+      { t: 'Description', lines: [DESCRIPTION] },
+      { t: 'Details', lines: ['Fabric: crepe. Cap sleeves, maxi length.', 'Colour: Dark Green / Green Siolo Print.', 'Sizes: S, M, L, 1X, 2X. Style code: V0222133.'] },
+      { t: 'Delivery & returns', lines: ['Delivery and taxes are calculated at checkout.', 'See our Delivery & Returns page and the Refund and Exchange Policy for how returns and exchanges work.'] }
+    ];
+    return {
+      rootRef: this.rootRef, mob, accKey, a, L, img: IMG,
+      mobile, desk, notMobile: !mobile,
+      gx: mobile ? 16 : (desk ? 32 : 24), secY: mobile ? 44 : 72, gap: mobile ? 12 : 16,
+      bleed: mobile ? -16 : 0, bleedPad: mobile ? 16 : 0,
+      h2: mobile ? 24 : 32, h2s: mobile ? 22 : 26,
+      mainCols: desk ? 'minmax(0, 7fr) minmax(0, 5fr)' : 'minmax(0, 1fr)', mainGap: desk ? 48 : 24,
+      galCols: desk ? '76px minmax(0, 1fr)' : 'minmax(0, 1fr)', mainRatio: '3 / 4.6',
+      thumbs: GALLERY.map((src, i) => ({
+        img: src, label: 'Show image ' + (i + 1) + ' of ' + n, pressed: i === s.img ? 'true' : 'false',
+        border: i === s.img ? '#0B0B0C' : 'transparent', pick: () => this.setState({ img: i })
+      })),
+      mainImg: GALLERY[s.img % n], mainAlt: 'Vivo Zuri Cap Sleeve Maxi Dress, image ' + ((s.img % n) + 1) + ' of ' + n,
+      imgCounter: ((s.img % n) + 1) + ' / ' + n,
+      prevImg: () => this.setState({ img: (this.state.img + n - 1) % n }),
+      nextImg: () => this.setState({ img: (this.state.img + 1) % n }),
+      buyPos: desk ? 'sticky' : 'static', titleSize: mobile ? 22 : 26,
+      dropSecs: 279729, flashSecs: 20529,
+      stars: [1, 2, 3, 4, 5].map((i) => ({ i })),
+      pct, priceStr: fmt(PRICE), compareStr: fmt(COMPARE), saveStr: fmt(COMPARE - PRICE),
+      sizes: SIZES.map((z) => {
+        const out = z.stock === 0;
+        const on = s.size === z.s;
+        return {
+          s: z.s, checked: on ? 'true' : 'false', disabledStr: out ? 'true' : 'false',
+          label: out ? 'Size ' + z.s + ', sold out' : 'Size ' + z.s,
+          border: on ? '#0B0B0C' : (out ? '#ECECEA' : '#D9D9D5'), bg: on ? '#0B0B0C' : (out ? '#F7F7F5' : '#FFFFFF'),
+          fg: on ? '#FFFFFF' : (out ? '#9A9AA3' : '#0B0B0C'), deco: out ? 'line-through' : 'none', cursor: out ? 'not-allowed' : 'pointer',
+          pick: () => { if (!out) this.setState({ size: z.s, sizeError: false }); }
+        };
+      }),
+      sizeLabel: sel ? sel.s : 'Choose a size',
+      showStock: !!sel && sel.stock > 0 && sel.stock <= 5, stockText: sel ? 'Only ' + sel.stock + ' left in ' + sel.s : '',
+      sizeError: s.sizeError,
+      qty: s.qty, lineStr: fmt(PRICE * s.qty), addMainLabel: mobile ? 'Add to cart' : 'Add to cart · ' + fmt(PRICE * s.qty),
+      decQty: () => this.setState({ qty: Math.max(1, this.state.qty - 1) }),
+      incQty: () => this.setState({ qty: Math.min(sel ? Math.max(1, sel.stock) : 5, this.state.qty + 1) }),
+      addToCartClick: addMain, stickyLabel: sel ? 'Add to cart · ' + sel.s : 'Choose a size',
+      wishPressed: s.wish ? 'true' : 'false', wishLabel: s.wish ? 'Remove from wishlist' : 'Save to wishlist',
+      wishFill: s.wish ? a.f : 'none', wishStroke: '#0B0B0C',
+      toggleWish: () => this.setState({ wish: !this.state.wish }),
+      accordions: accDefs.map((d) => {
+        const open = !!s.open[d.t];
+        return {
+          t: d.t, open, expanded: open ? 'true' : 'false', rot: open ? 180 : 0,
+          lines: d.lines.map((t) => ({ t })),
+          toggle: () => { const o = Object.assign({}, this.state.open); o[d.t] = !o[d.t]; this.setState({ open: o }); }
+        };
+      }),
+      related: RELATED, flash: FLASH,
+      col6: mobile ? '44%' : (tablet ? 'calc((100% - 48px) / 4)' : 'calc((100% - 80px) / 6)'),
+      col4: mobile ? '46%' : (tablet ? 'calc((100% - 32px) / 3)' : 'calc((100% - 48px) / 4)'),
+      flashPad: mobile ? 18 : 32,
+      revCols: mobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) auto', revPad: mobile ? 20 : 28, revAlign: mobile ? 'stretch' : 'end',
+      cartOpen: s.cartOpen, cartCount: s.cartCount, addKey: s.addKey, lastAdded: s.lastAdded,
+      openCart: this.openCart, closeCart: this.closeCart, setCount: this.setCount, addToCart: this.addToCart
+    };
+  }
+}
+</script>
+</body>
+</html>

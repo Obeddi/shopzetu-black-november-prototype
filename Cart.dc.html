@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Cart drawer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div ref="{{ rootRef }}" style="position: {{ rootPos }}; height: {{ rootH }}; overflow: {{ rootOverflow }}; background: {{ rootBg }}; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #0B0B0C; -webkit-font-smoothing: antialiased">
+
+<sc-if value="{{ standalone }}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: #FFFFFF">
+<div style="height: 36px; background: #0B0B0C"></div>
+<div style="height: 80px; padding: 0 32px; display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #E6E6E3">
+<img loading="lazy" src="{{ img.logo }}" alt="" style="width: 54px; height: 54px; border-radius: 4px; display: block">
+<span style="flex: 1; max-width: 640px; height: 46px; margin: 0 auto; border-radius: 8px; border: 1.5px solid #E6E6E3; display: block"></span>
+</div>
+<div style="height: 50px; border-bottom: 1px solid #E6E6E3"></div>
+<div style="height: 560px; background: #0B0B0C; padding: 64px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<span style="width: 240px; height: 12px; background: {{ a.f }}; display: block"></span>
+<span style="width: 520px; max-width: 80%; height: 120px; background: #1F1F22; border-radius: 8px; display: block"></span>
+<span style="width: 380px; max-width: 70%; height: 16px; background: #1F1F22; border-radius: 4px; display: block"></span>
+</div>
+</div>
+<sc-if value="{{ closedStandalone }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ reopen }}" style="font-family: inherit; position: absolute; right: 24px; top: 140px; height: 48px; padding: 0 20px; border-radius: 6px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Open cart ({{ count }})</button>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ isOpen }}" hint-placeholder-val="{{ true }}">
+<div style="position: {{ layerPos }}; inset: 0; z-index: 200">
+<div onClick="{{ close }}" style="position: absolute; inset: 0; background: rgba(11, 11, 12, 0.55)"></div>
+<aside role="dialog" aria-modal="true" aria-label="Your cart" style="position: absolute; top: 0; right: 0; bottom: 0; width: {{ panelW }}; background: #FFFFFF; display: flex; flex-direction: column; overflow-y: auto; box-shadow: -16px 0 40px rgba(11, 11, 12, 0.25)">
+
+<div style="position: sticky; top: 0; z-index: 2; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 12px 14px 20px; border-bottom: 1px solid #E6E6E3">
+<h2 style="margin: 0; font-size: 18px; font-weight: 900; font-stretch: 112%; text-transform: uppercase; letter-spacing: 0.02em">Your cart <span style="color: #5E5E66; font-weight: 700">({{ count }})</span></h2>
+<button type="button" aria-label="Close cart" onClick="{{ close }}" style="font-family: inherit; width: 44px; height: 44px; border: none; border-radius: 999px; background: transparent; color: #0B0B0C; display: inline-flex; align-items: center; justify-content: center; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+
+<sc-if value="{{ hasItems }}" hint-placeholder-val="{{ true }}">
+<div style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #0B0B0C; color: #FFFFFF">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ a.f }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>
+<span style="font-size: 14px; line-height: 1.35">You're saving <span style="color: {{ a.f }}; font-weight: 900">{{ savingsStr }}</span> with Black November deals</span>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; color: #5E5E66">
+<span>Drop 01 prices end in</span>
+<dc-import name="Countdown" seconds="279729" tone="light" kind="inline" size="sm" label="" acc="{{ accKey }}" hint-size="130px,32px"></dc-import>
+</div>
+</div>
+
+<ul style="list-style: none; margin: 0; padding: 0 20px">
+<sc-for list="{{ items }}" as="it" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid #F0F0EE">
+<img loading="lazy" src="{{ it.img }}" alt="" style="width: 84px; height: 130px; object-fit: cover; border-radius: 10px; display: block; background: #ECECEC">
+<div style="display: flex; flex-direction: column; gap: 5px; min-width: 0">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #5E5E66">{{ it.vendor }}</span>
+<sc-if value="{{ it.hasLabel }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; height: 22px; padding: 0 7px; border-radius: 6px; background: #0B0B0C; color: {{ a.f }}; font-size: 10px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap">{{ it.label }}</span>
+</sc-if>
+</div>
+<span style="font-size: 14px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ it.title }}</span>
+<span style="font-size: 13px; color: #5E5E66">Size: {{ it.size }}</span>
+<sc-if value="{{ it.hasTag }}" hint-placeholder-val="{{ false }}">
+<span style="align-self: flex-start; font-size: 11.5px; font-weight: 700; padding: 3px 7px; border-radius: 6px; background: #F3F2EF">{{ it.tag }}</span>
+</sc-if>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px">
+<div style="display: inline-flex; align-items: center; border: 1px solid #E6E6E3; border-radius: 8px">
+<button type="button" aria-label="{{ it.decLabel }}" onClick="{{ it.dec }}" style="font-family: inherit; width: 40px; height: 40px; border: none; background: transparent; color: #0B0B0C; font-size: 18px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+<span aria-live="polite" style="min-width: 26px; text-align: center; font-size: 14px; font-weight: 800">{{ it.qty }}</span>
+<button type="button" aria-label="{{ it.incLabel }}" onClick="{{ it.inc }}" style="font-family: inherit; width: 40px; height: 40px; border: none; background: transparent; color: #0B0B0C; font-size: 18px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px">
+<span style="font-size: 15px; font-weight: 900; color: {{ it.priceColor }}">{{ it.lineStr }}</span>
+<s style="font-size: 12px; color: #5E5E66">{{ it.lineWasStr }}</s>
+</div>
+</div>
+<button type="button" onClick="{{ it.remove }}" style="font-family: inherit; align-self: flex-start; height: 32px; padding: 0; border: none; background: transparent; color: #5E5E66; font-size: 12.5px; text-decoration: underline; cursor: pointer">Remove</button>
+</div>
+</li>
+</sc-for>
+</ul>
+
+<sc-if value="{{ hasUpsell }}" hint-placeholder-val="{{ true }}">
+<div style="padding: 12px 20px; border-top: 1px solid #E6E6E3; background: #F7F7F5">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px">
+<span style="font-size: 11px; font-weight: 900; letter-spacing: 0.14em; text-transform: uppercase; color: {{ a.t }}">Add a flash deal</span>
+<span style="font-size: 12px; color: #5E5E66">Today only</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{ upsell }}" as="u" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 10px; align-items: center; padding: 8px; border-radius: 10px; background: #FFFFFF; border: 1px solid #ECECEA">
+<img loading="lazy" src="{{ u.img }}" alt="" style="width: 48px; height: 72px; object-fit: cover; border-radius: 6px; display: block; background: #ECECEC">
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+<span style="font-size: 12.5px; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{ u.title }}</span>
+<span style="font-size: 12.5px; font-weight: 900; color: {{ a.t }}">{{ u.priceStr }} <s style="font-weight: 500; color: #5E5E66">{{ u.compareStr }}</s></span>
+<button type="button" aria-label="{{ u.addLabel }}" onClick="{{ u.add }}" style="font-family: inherit; align-self: flex-start; height: 30px; padding: 0 10px; border-radius: 6px; border: 1.5px solid #0B0B0C; background: #FFFFFF; color: #0B0B0C; font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer">Add</button>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<div style="position: sticky; bottom: 0; z-index: 2; margin-top: auto; background: #FFFFFF; padding: 16px 20px 20px; border-top: 1px solid #E6E6E3; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 -10px 24px rgba(11, 11, 12, 0.06)">
+<div style="display: flex; justify-content: space-between; font-size: 15px"><span>Subtotal</span><span style="font-weight: 900">{{ subtotalStr }}</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; color: {{ a.t }}; font-weight: 700"><span>Black November savings</span><span>−{{ savingsStr }}</span></div>
+<span style="font-size: 12.5px; color: #5E5E66">Delivery and taxes are calculated at checkout.</span>
+<button type="button" style="font-family: inherit; height: 54px; border-radius: 6px; border: none; background: {{ a.f }}; color: #0B0B0C; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+Checkout · {{ subtotalStr }}</button>
+<button type="button" onClick="{{ close }}" style="font-family: inherit; height: 44px; border: none; background: transparent; color: #0B0B0C; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: underline; cursor: pointer">Continue shopping</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 32px 28px; text-align: center">
+<span style="width: 72px; height: 72px; border-radius: 999px; background: #F3F2EF; display: inline-flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg></span>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; max-width: 300px">Looks like you haven't added anything yet, let's get you started!</p>
+<a href="{{ L.coll }}" style="display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 24px; border-radius: 6px; background: {{ a.f }}; color: #0B0B0C; font-size: 13px; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none">Shop the deals</a>
+</div>
+</sc-if>
+
+</aside>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"open":{"editor":null},"onClose":{"editor":null},"onChange":{"editor":null},"added":{"editor":null},"addedKey":{"editor":null},"mob":{"editor":null},"acc":{"editor":null},"embedded":{"editor":null},"$preview":{"width":1440,"height":900}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const IMG = {
+  logo: 'assets/logo.webp',
+  p_zuri_green: 'assets/p_zuri_green.webp',
+  c_bana: 'assets/c_bana.webp',
+  p_bangle1: 'assets/p_bangle1.webp',
+  c_denim: 'assets/c_denim.webp',
+  c_valtank: 'assets/c_valtank.webp'
+};
+const fmt = (n) => 'KES ' + Number(n).toLocaleString('en-US');
+const START = [
+  { id: 'zuri_green', title: 'Vivo Zuri Cap Sleeve Maxi Dress in Crepe - Dark Green / Green Siolo Print', vendor: 'Vivo', img: IMG.p_zuri_green, size: 'M', price: 4830, compare: 6900, label: 'Drop 01', qty: 1 },
+  { id: 'bana', title: 'Vivo Bana Batwing Top - Navy Blue', vendor: 'Vivo', img: IMG.c_bana, size: 'S/M', price: 2050, compare: 3950, label: 'Flash deal', qty: 1 },
+  { id: 'bangle1', title: 'Afrodame Chunky Bangle - Gold', vendor: 'AfroDame', img: IMG.p_bangle1, size: 'F', price: 800, compare: 1200, tag: 'Non-returnable', qty: 1 }
+];
+const UPSELL = [
+  { id: 'denim', title: 'Denim Haven High Rise Skinny Ripped Jeans - Deep Blue', vendor: 'Denim Haven', img: IMG.c_denim, sizes: ['32'], price: 700, compare: 3500, lowAt: 5 },
+  { id: 'valtank', title: 'Zoya Basic Val Tank Top - Forest Green', vendor: 'Zoya', img: IMG.c_valtank, sizes: ['M'], price: 850, compare: 1550, lowAt: 5 }
+];
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const iw = (typeof window !== 'undefined' && window.innerWidth) ? window.innerWidth : 1440;
+    this.state = { w: iw, items: START.map((x) => Object.assign({}, x)), standaloneOpen: true };
+    this.seenKey = this.props.addedKey || 0;
+    this.ro = null;
+    this.rootEl = null;
+    this.rootRef = (el) => {
+      if (!el || el === this.rootEl) return;
+      this.rootEl = el;
+      if (this.ro) this.ro.disconnect();
+      if (typeof ResizeObserver !== 'undefined') {
+        this.ro = new ResizeObserver((entries) => {
+          const cw = Math.round(entries[0].contentRect.width);
+          if (cw && Math.abs(cw - this.state.w) > 1) this.setState({ w: cw });
+        });
+        this.ro.observe(el);
+      }
+    };
+  }
+  componentDidMount() {
+    this.notify(this.state.items);
+  }
+  componentWillUnmount() {
+    if (this.ro) this.ro.disconnect();
+  }
+  notify(items) {
+    const n = items.reduce((s, x) => s + x.qty, 0);
+    if (this.props.onChange) this.props.onChange(n);
+  }
+  update(items) {
+    this.setState({ items });
+    this.notify(items);
+  }
+  addItem(p) {
+    if (!p) return;
+    const items = this.state.items.map((x) => Object.assign({}, x));
+    const hit = items.find((x) => x.id === p.id);
+    if (hit) {
+      hit.qty += 1;
+    } else {
+      const sizes = p.sizes || [];
+      items.unshift({
+        id: p.id, title: p.title, vendor: p.vendor, img: p.img,
+        size: sizes.length ? sizes[Math.min(1, sizes.length - 1)] : 'F',
+        price: p.price, compare: p.compare || 0,
+        label: p.drop ? p.drop : (p.lowAt ? 'Flash deal' : ''), tag: p.tag || '', qty: 1
+      });
+    }
+    this.update(items);
+  }
+  renderVals() {
+    if (this.props.addedKey && this.props.addedKey !== this.seenKey) {
+      this.seenKey = this.props.addedKey;
+      const p = this.props.added;
+      setTimeout(() => this.addItem(p), 0);
+    }
+    const w = this.state.w;
+    const embedded = !!this.props.embedded;
+    const a = ACCENTS[this.props.acc] || ACCENTS.lime;
+    const accKey = ACCENTS[this.props.acc] ? this.props.acc : 'lime';
+    const mob = this.props.mob ? '1' : '';
+    const items = this.state.items;
+    const count = items.reduce((s, x) => s + x.qty, 0);
+    const subtotal = items.reduce((s, x) => s + x.price * x.qty, 0);
+    const savings = items.reduce((s, x) => s + (x.compare > x.price ? (x.compare - x.price) * x.qty : 0), 0);
+    const isOpen = embedded ? !!this.props.open : this.state.standaloneOpen;
+    const inCart = (id) => items.some((x) => x.id === id);
+    const close = () => { if (embedded) { if (this.props.onClose) this.props.onClose(); } else { this.setState({ standaloneOpen: false }); } };
+    return {
+      rootRef: this.rootRef, a, accKey, img: IMG,
+      L: mob ? { coll: 'MobileCollection.dc.html' } : { coll: 'Collection.dc.html' },
+      standalone: !embedded, closedStandalone: !embedded && !this.state.standaloneOpen,
+      rootPos: embedded ? 'static' : 'relative', rootH: embedded ? 'auto' : '100vh',
+      rootOverflow: embedded ? 'visible' : 'hidden', rootBg: embedded ? 'transparent' : '#FFFFFF',
+      layerPos: embedded ? 'fixed' : 'absolute',
+      panelW: w < 560 ? '100%' : 'min(440px, 100%)',
+      isOpen, close, reopen: () => this.setState({ standaloneOpen: true }),
+      count, hasItems: items.length > 0, empty: items.length === 0,
+      subtotalStr: fmt(subtotal), savingsStr: fmt(savings),
+      items: items.map((x, i) => {
+        const off = x.compare > x.price;
+        return {
+          id: x.id, title: x.title, vendor: x.vendor, img: x.img, size: x.size, qty: x.qty,
+          hasLabel: !!x.label, label: x.label || '', hasTag: !!x.tag, tag: x.tag || '',
+          lineStr: fmt(x.price * x.qty), lineWasStr: off ? fmt(x.compare * x.qty) : '',
+          priceColor: off ? a.t : '#0B0B0C',
+          decLabel: 'Decrease quantity of ' + x.title, incLabel: 'Increase quantity of ' + x.title,
+          dec: () => {
+            const next = this.state.items.map((y) => Object.assign({}, y));
+            const k = next.findIndex((y) => y.id === x.id);
+            if (k < 0) return;
+            if (next[k].qty > 1) next[k].qty -= 1; else next.splice(k, 1);
+            this.update(next);
+          },
+          inc: () => {
+            const next = this.state.items.map((y) => Object.assign({}, y));
+            const k = next.findIndex((y) => y.id === x.id);
+            if (k < 0) return;
+            next[k].qty += 1;
+            this.update(next);
+          },
+          remove: () => {
+            const next = this.state.items.filter((y) => y.id !== x.id).map((y) => Object.assign({}, y));
+            this.update(next);
+          }
+        };
+      }),
+      upsell: UPSELL.filter((u) => !inCart(u.id)).map((u) => ({
+        title: u.title, img: u.img, priceStr: fmt(u.price), compareStr: fmt(u.compare),
+        addLabel: 'Add ' + u.title + ' to cart', add: () => this.addItem(u)
+      })),
+      hasUpsell: items.length > 0 && UPSELL.some((u) => !inCart(u.id))
+    };
+  }
+}
+</script>
+</body>
+</html>

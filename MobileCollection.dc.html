@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Sale collection on mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 100%; max-width: 390px; margin: 0 auto; background: #FFFFFF; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #0B0B0C">
+<dc-import name="Collection" mob="1" accent="{{ accent }}" hint-size="390px,5670px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"enum","options":["lime","orange","red","gold"],"default":"lime","section":"Black November"},"$preview":{"width":390,"height":5670}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent || 'lime' };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Phone preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0B0B0C; --ink2: #161618; --ink3: #2A2A2E; --muted: #A9A9B2; --acc: #DDEA0D; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--ink); color: #FFFFFF; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; overflow: hidden; }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 24px; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--ink3); color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .pill:hover { border-color: #FFFFFF; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+  nav a { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 999px; background: var(--ink2); color: var(--muted); font-size: 13.5px; font-weight: 800; text-decoration: none; }
+  nav a:hover { color: #FFFFFF; }
+  nav a[aria-current="page"] { background: var(--acc); color: var(--ink); }
+  a:focus-visible { outline: 3px solid var(--acc); outline-offset: 2px; }
+  .stage { flex: 1; min-height: 0; display: flex; justify-content: center; align-items: flex-start; padding: 6px 0 24px; }
+  .phone { flex-shrink: 0; width: 410px; height: 864px; border: 10px solid var(--ink3); border-radius: 52px; overflow: hidden; background: #FFFFFF; transform-origin: top center; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55); }
+  iframe { display: block; width: 390px; height: 844px; border: 0; background: #FFFFFF; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="pill" href="screens.html"><span aria-hidden="true">←</span> All screens</a>
+  <nav id="tabs" aria-label="Mobile screens"></nav>
+  <a class="pill" id="full" href="MobileHome.dc.html">Open full page <span aria-hidden="true">↗</span></a>
+</div>
+<div class="stage" id="stage"><div class="phone" id="phone"><iframe id="frame" title="Phone preview"></iframe></div></div>
+<script>
+  var SCREENS = [
+    ['MobileHome.dc.html', 'Home'],
+    ['MobileCollection.dc.html', 'Sale'],
+    ['MobileProduct.dc.html', 'Product'],
+    ['MobileSearch.dc.html', 'Search'],
+    ['MobileCart.dc.html', 'Cart'],
+    ['MobileMenu.dc.html', 'Menu']
+  ];
+  var tabs = document.getElementById('tabs');
+  var frame = document.getElementById('frame');
+  var full = document.getElementById('full');
+  var phone = document.getElementById('phone');
+  var stage = document.getElementById('stage');
+
+  SCREENS.forEach(function (s) {
+    var a = document.createElement('a');
+    a.href = '#' + s[0];
+    a.textContent = s[1];
+    a.setAttribute('data-file', s[0]);
+    tabs.appendChild(a);
+  });
+
+  function known(f) { return SCREENS.some(function (s) { return s[0] === f; }); }
+  function mark(f) {
+    full.href = f;
+    Array.prototype.forEach.call(tabs.children, function (a) {
+      if (a.getAttribute('data-file') === f) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  function fit() {
+    var s = Math.min(1, (stage.clientHeight - 30) / 864);
+    phone.style.transform = 'scale(' + s + ')';
+    phone.style.marginBottom = (-864 * (1 - s)) + 'px';
+  }
+  function show() {
+    var f = decodeURIComponent(location.hash.slice(1));
+    if (!known(f)) f = SCREENS[0][0];
+    // On a real phone the page itself is the best preview.
+    if (window.innerWidth < 600) { location.replace(f); return; }
+    if (frame.getAttribute('src') !== f) frame.setAttribute('src', f);
+    mark(f);
+    fit();
+  }
+  // Keep the tabs in step when people click around inside the phone.
+  frame.addEventListener('load', function () {
+    try {
+      var f = frame.contentWindow.location.pathname.split('/').pop();
+      if (f) { mark(f); history.replaceState(null, '', '#' + f); }
+    } catch (e) {}
+  });
+  window.addEventListener('hashchange', show);
+  window.addEventListener('resize', fit);
+  show();
+</script>
+</body>
+</html>

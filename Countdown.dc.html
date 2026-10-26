@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — Deal countdown</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div role="timer" aria-label="{{ aria }}" style="display: inline-flex; align-items: flex-start; font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; color: {{ fg }}; -webkit-font-smoothing: antialiased">
+<sc-if value="{{ inline }}" hint-placeholder-val="{{ false }}">
+<span style="display: inline-flex; align-items: center; gap: 8px; height: {{ pillH }}px; padding: 0 12px; border-radius: 999px; background: {{ pillBg }}; font-size: {{ inlineSize }}px; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="{{ iconColor }}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+<span style="font-weight: 650; color: {{ labelColor }}">{{ label }}</span>
+<span>{{ text }}</span>
+</span>
+</sc-if>
+<sc-if value="{{ boxes }}" hint-placeholder-val="{{ true }}">
+<div style="display: inline-flex; align-items: flex-start; gap: {{ gap }}px">
+<sc-for list="{{ units }}" as="u" hint-placeholder-count="4">
+<div style="display: flex; align-items: flex-start; gap: {{ u.gap }}px">
+<sc-if value="{{ u.sep }}" hint-placeholder-val="{{ false }}">
+<span aria-hidden="true" style="height: {{ u.boxH }}px; display: inline-flex; align-items: center; font-size: {{ u.numSize }}px; font-weight: 900; color: {{ u.sepColor }}">:</span>
+</sc-if>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 5px">
+<span style="min-width: {{ u.boxW }}px; height: {{ u.boxH }}px; padding: 0 6px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background: {{ u.boxBg }}; border: 1px solid {{ u.boxBorder }}; font-size: {{ u.numSize }}px; font-weight: 900; font-variant-numeric: tabular-nums; letter-spacing: 0.01em; color: {{ u.numColor }}">{{ u.v }}</span>
+<span style="font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: {{ u.labColor }}">{{ u.l }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"seconds":{"editor":"int","default":279729,"min":0,"max":2592000},"tone":{"editor":"enum","options":["dark","light","accent"],"default":"dark"},"kind":{"editor":"enum","options":["boxes","inline"],"default":"boxes"},"size":{"editor":"enum","options":["sm","md","lg"],"default":"lg"},"label":{"editor":null},"acc":{"editor":null},"$preview":{"width":420,"height":110}}'>
+const ACCENTS = { lime: { f: '#DDEA0D', t: '#606600' }, orange: { f: '#FF6A13', t: '#B93C0A' }, red: { f: '#FF4438', t: '#C8261B' }, gold: { f: '#FFC21A', t: '#8A6200' } };
+const SIZES = {
+  sm: { boxW: 38, boxH: 36, num: 16, gap: 4, inline: 13, pill: 32 },
+  md: { boxW: 50, boxH: 48, num: 22, gap: 6, inline: 14, pill: 36 },
+  lg: { boxW: 66, boxH: 62, num: 30, gap: 8, inline: 16, pill: 40 }
+};
+const pad = (n) => (n < 10 ? '0' : '') + n;
+
+class Component extends DCLogic {
+  constructor(...args) {
+    super(...args);
+    const s = Number(this.props.seconds);
+    this.state = { left: isFinite(s) && s > 0 ? Math.floor(s) : 279729 };
+    this.timer = null;
+  }
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState((st) => ({ left: st.left > 0 ? st.left - 1 : 0 })), 1000);
+  }
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+  }
+  renderVals() {
+    const a = ACCENTS[this.props.acc] || ACCENTS.lime;
+    const tone = this.props.tone || 'dark';
+    const S = SIZES[this.props.size] || SIZES.lg;
+    const kind = this.props.kind || 'boxes';
+    const left = this.state.left;
+    const d = Math.floor(left / 86400);
+    const h = Math.floor((left % 86400) / 3600);
+    const m = Math.floor((left % 3600) / 60);
+    const s = left % 60;
+    const T = {
+      dark: { boxBg: '#161618', boxBorder: '#2A2A2E', num: '#FFFFFF', lab: '#A9A9B2', sep: a.f, fg: '#FFFFFF', pill: '#161618', label: '#A9A9B2', icon: a.f },
+      light: { boxBg: '#FFFFFF', boxBorder: '#E6E6E3', num: '#0B0B0C', lab: '#5E5E66', sep: a.t, fg: '#0B0B0C', pill: '#F3F2EF', label: '#5E5E66', icon: a.t },
+      accent: { boxBg: '#0B0B0C', boxBorder: '#0B0B0C', num: a.f, lab: '#0B0B0C', sep: '#0B0B0C', fg: '#0B0B0C', pill: a.f, label: '#0B0B0C', icon: '#0B0B0C' }
+    }[tone] || null;
+    const t = T || { boxBg: '#161618', boxBorder: '#2A2A2E', num: '#FFFFFF', lab: '#A9A9B2', sep: a.f, fg: '#FFFFFF', pill: '#161618', label: '#A9A9B2', icon: a.f };
+    const parts = [];
+    if (d > 0) parts.push({ v: String(d), l: d === 1 ? 'Day' : 'Days' });
+    parts.push({ v: pad(h), l: 'Hrs' }, { v: pad(m), l: 'Min' }, { v: pad(s), l: 'Sec' });
+    const units = parts.map((p, i) => ({
+      v: p.v, l: p.l, sep: i > 0, gap: S.gap,
+      boxW: S.boxW, boxH: S.boxH, numSize: S.num,
+      boxBg: t.boxBg, boxBorder: t.boxBorder, numColor: t.num, labColor: t.lab, sepColor: t.sep
+    }));
+    return {
+      inline: kind === 'inline', boxes: kind !== 'inline',
+      units, gap: S.gap, fg: t.fg,
+      pillBg: t.pill, pillH: S.pill, inlineSize: S.inline, iconColor: t.icon,
+      label: this.props.label === undefined ? 'Ends in' : this.props.label, labelColor: t.label,
+      text: (d > 0 ? d + 'd ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s),
+      aria: 'Time left: ' + d + ' days, ' + h + ' hours, ' + m + ' minutes'
+    };
+  }
+}
+</script>
+</body>
+</html>

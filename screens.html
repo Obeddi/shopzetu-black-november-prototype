@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shop Zetu — All screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0B0B0C; --line: #E6E6E3; --sand: #F3F2EF; --muted: #5E5E66; --muted-d: #A9A9B2; --acc: #DDEA0D; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sand); color: var(--ink); font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  .top { background: var(--ink); color: #FFFFFF; }
+  .top .wrap { padding-top: 44px; padding-bottom: 48px; }
+  .chip { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border-radius: 6px; background: var(--acc); color: var(--ink); font-size: 12px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+  h1 { font-stretch: 112%; font-weight: 900; font-size: clamp(36px, 6vw, 64px); line-height: 1; margin: 18px 0 14px; }
+  .lead { max-width: 640px; margin: 0; color: var(--muted-d); font-size: 16.5px; line-height: 1.55; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; height: 50px; margin-top: 26px; padding: 0 22px; border-radius: 999px; background: #FFFFFF; color: var(--ink); font-weight: 800; font-size: 15px; text-decoration: none; }
+  .cta:hover { background: var(--acc); }
+  section { padding-top: 44px; }
+  h2 { font-stretch: 112%; font-weight: 900; font-size: 26px; margin: 0 0 4px; }
+  .sub { margin: 0 0 18px; color: var(--muted); font-size: 14.5px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .grid.m { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  .card { display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; color: inherit; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(11, 11, 12, 0.1); }
+  .card:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  .thumb { aspect-ratio: 16 / 10; background: #ECECEC; overflow: hidden; }
+  .m .thumb { aspect-ratio: 390 / 600; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .c .thumb { background: #FFFFFF; border-bottom: 1px solid var(--line); }
+  .c .thumb img { object-fit: contain; object-position: center; padding: 12px; }
+  .meta { display: flex; flex-direction: column; gap: 3px; padding: 12px 14px 14px; }
+  .meta b { font-size: 15px; font-weight: 800; }
+  .meta span { font-size: 13px; color: var(--muted); }
+  .note { margin: 48px 0 56px; padding: 18px 20px; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--line); color: var(--muted); font-size: 14px; line-height: 1.65; }
+  .note b { color: var(--ink); }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 16px; }
+    .top .wrap { padding-top: 32px; padding-bottom: 36px; }
+    .grid, .grid.m { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .meta span { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <span class="chip">Black November</span>
+    <h1>Shop Zetu redesign</h1>
+    <p class="lead">A clickable prototype of the new shopzetu.com. The menu, search, filters, sizes, add to cart and the cart drawer all work.</p>
+    <a class="cta" href="./">Open the homepage <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+<main class="wrap">
+  <section>
+    <h2>Desktop</h2>
+    <p class="sub">Each page also adjusts itself on phones and tablets.</p>
+    <div class="grid">
+      <a class="card" href="./"><div class="thumb"><img src="assets/thumbs/home.webp" alt="" loading="lazy"></div><div class="meta"><b>Home</b><span>Deals, weekly drops, flash sale</span></div></a>
+      <a class="card" href="Collection.dc.html"><div class="thumb"><img src="assets/thumbs/sale.webp" alt="" loading="lazy"></div><div class="meta"><b>Sale collection</b><span>Filters, sort, load more</span></div></a>
+      <a class="card" href="Product.dc.html"><div class="thumb"><img src="assets/thumbs/product.webp" alt="" loading="lazy"></div><div class="meta"><b>Product page</b><span>Photos, sizes, add to cart</span></div></a>
+      <a class="card" href="Search.dc.html"><div class="thumb"><img src="assets/thumbs/search.webp" alt="" loading="lazy"></div><div class="meta"><b>Search</b><span>Suggestions as you type</span></div></a>
+      <a class="card" href="Cart.dc.html"><div class="thumb"><img src="assets/thumbs/cart.webp" alt="" loading="lazy"></div><div class="meta"><b>Cart</b><span>Drawer with savings</span></div></a>
+    </div>
+  </section>
+  <section>
+    <h2>Mobile</h2>
+    <p class="sub">Opens in a phone-sized preview.</p>
+    <div class="grid m">
+      <a class="card" href="phone.html#MobileHome.dc.html"><div class="thumb"><img src="assets/thumbs/m-home.webp" alt="" loading="lazy"></div><div class="meta"><b>Home</b></div></a>
+      <a class="card" href="phone.html#MobileCollection.dc.html"><div class="thumb"><img src="assets/thumbs/m-sale.webp" alt="" loading="lazy"></div><div class="meta"><b>Sale collection</b></div></a>
+      <a class="card" href="phone.html#MobileProduct.dc.html"><div class="thumb"><img src="assets/thumbs/m-product.webp" alt="" loading="lazy"></div><div class="meta"><b>Product page</b></div></a>
+      <a class="card" href="phone.html#MobileSearch.dc.html"><div class="thumb"><img src="assets/thumbs/m-search.webp" alt="" loading="lazy"></div><div class="meta"><b>Search</b></div></a>
+      <a class="card" href="phone.html#MobileCart.dc.html"><div class="thumb"><img src="assets/thumbs/m-cart.webp" alt="" loading="lazy"></div><div class="meta"><b>Cart</b></div></a>
+      <a class="card" href="phone.html#MobileMenu.dc.html"><div class="thumb"><img src="assets/thumbs/m-menu.webp" alt="" loading="lazy"></div><div class="meta"><b>Menu</b></div></a>
+    </div>
+  </section>
+  <section>
+    <h2>Building blocks</h2>
+    <p class="sub">The shared parts every page uses.</p>
+    <div class="grid c">
+      <a class="card" href="Header.dc.html"><div class="thumb"><img src="assets/thumbs/header.webp" alt="" loading="lazy"></div><div class="meta"><b>Header and mega menu</b></div></a>
+      <a class="card" href="Footer.dc.html"><div class="thumb"><img src="assets/thumbs/footer.webp" alt="" loading="lazy"></div><div class="meta"><b>Footer</b></div></a>
+      <a class="card" href="ProductCard.dc.html"><div class="thumb"><img src="assets/thumbs/card.webp" alt="" loading="lazy"></div><div class="meta"><b>Product card</b></div></a>
+      <a class="card" href="Countdown.dc.html"><div class="thumb"><img src="assets/thumbs/countdown.webp" alt="" loading="lazy"></div><div class="meta"><b>Countdown</b></div></a>
+    </div>
+  </section>
+  <p class="note"><b>Real, from shopzetu.com (14 Oct 2026):</b> products, photos, prices, menu, section text, brands, blogs and footer.<br><b>Samples to confirm:</b> drop names and dates, Drop 01 prices on six dresses, the % off tiers and the countdown times. Checkout is not connected.</p>
+</main>
+</body>
+</html>
